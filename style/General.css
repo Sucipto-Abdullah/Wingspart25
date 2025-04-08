@@ -1,0 +1,18 @@
+body{
+    margin: auto;
+}
+
+.Header{
+    background-color: aqua;
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.kategori{
+    background-color: aqua;
+    margin: auto;
+    align-content: center;
+    text-align: center;
+}
