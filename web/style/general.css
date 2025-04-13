@@ -269,7 +269,7 @@ body{
     }
 }
 .content-page{
-    height: 800px;
+    min-height: 800px;
     margin: auto;   
     width: 80%;
     padding: 20px;
@@ -277,4 +277,24 @@ body{
     justify-content: center;
     text-align: center;
     /* nanti css di kontennya taruh sini, dan jangan pakek Chat-GPT */
+    #kategori{
+        background-color: var(--main-color);
+        border-radius: 2px;
+        padding: 10px;
+        padding-left: 50px;
+        padding-right: 50px;
+        #daftar-kategori{
+            width: 100%;
+            display: flex;
+            #anggota-kategori{
+                border: none;
+                width: 197px;
+                background-color: var(--main-color);
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
 }
