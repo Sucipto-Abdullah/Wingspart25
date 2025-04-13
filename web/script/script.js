@@ -2,48 +2,6 @@ let username = "sucipto";
 let email = "ciptoabdul23@gmail.com";
 let password = "cipto";
 
-const username_input = document.getElementById("username_input");
-const password_input = document.getElementById("password_input");
-const login_button = document.getElementById("login_button");
-const login_submit = document.getElementById("login_submit");
-  
-// login_button.onclick = function(){
-//     console.log("nigga");
-//     if((username_input.value == username || username_input.value == email) && password_input.value == password){
-//         login_submit.href = "main menu.html";
-//     }
-//     else{
-//         username_input.value = "";
-//         password_input.value = "";
-//         username_input.style = "border-color: red;";
-//         password_input.style = "border-color: red;";
-//         console.log("hallo");
-//     }
-// }
-
-// const create_submit = document.getElementById("submit_button_create");
-// const create_account_submit = document.getElementById("create_account_button");
-// const new_username = document.getElementById("Username_create_input");
-// const new_email = document.getElementById("Email_create_input");
-// const new_password = document.getElementById("Password_create_input");
-// const new_vertivy_password = document.getElementById("vertivy_password_create_input");
-// const new_alamat = document.getElementById("Alamat_create_input");
-
-// create_submit.onclick = function(){
-//     console.log("nigga");
-//     if(new_username.value && new_email.value && (new_password.value == new_vertivy_password.value) && new_alamat.value){
-//         create_account_submit.href = "main menu.html";
-//     }
-//     else{
-//         new_username.style = "border-color: red;";
-//         new_email.style = "border-color: red;";
-//         new_password.style = "border-color: red;";
-//         new_vertivy_password.style = "border-color: red;";
-//         new_alamat.style = "border-color: red;";
-//         console.log("hallo");
-//     }
-// }
-
 let notification_show = false;
 let profile_show = false;
 
@@ -72,3 +30,47 @@ function showProfile(){
         profile_show = false;
     }
 }
+
+const daftar_kategori = document.getElementById("daftar-kategori");
+
+class kategori{
+    constructor(nama){
+        this.nama = nama;
+        this.image_locate = `../image/${nama}.png`;
+    }
+}
+
+function show_category(kategori){
+    return`<button id="anggota-kategori" value"#">
+                                    <img src="${kategori.image_locate}">
+                                    <p>${kategori.nama}</p>
+                                    </button>`;
+}
+
+const helm = new kategori("Helm");
+const spion = new kategori("Spion");
+const head_lamp = new kategori("Head lamp");
+const knalpot = new kategori("Knalpot");
+const disc_motor = new kategori("Disc motor");
+const rem = new kategori("Rem");
+const motor = new kategori("Motor");
+
+let kategori_array = [];
+
+kategori_array.push(helm);
+kategori_array.push(spion);
+kategori_array.push(knalpot);
+kategori_array.push(head_lamp);
+kategori_array.push(disc_motor);
+kategori_array.push(rem);
+kategori_array.push(motor);
+
+console.log(kategori_array);
+
+let tampilan_kategori_array = [];
+
+for(let i=0; i<kategori_array.length; i++){
+    tampilan_kategori_array.push(show_category(kategori_array[i]));
+}
+
+daftar_kategori.innerHTML = tampilan_kategori_array;

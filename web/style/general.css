@@ -273,7 +273,6 @@ body{
     margin: auto;   
     width: 80%;
     padding: 20px;
-    align-content: center;
     justify-content: center;
     text-align: center;
     /* nanti css di kontennya taruh sini, dan jangan pakek Chat-GPT */
@@ -286,14 +285,24 @@ body{
         #daftar-kategori{
             width: 100%;
             display: flex;
+            gap: 2px;
+            margin-bottom: 20px;
             #anggota-kategori{
                 border: none;
                 width: 197px;
+                height: 230px;
                 background-color: var(--main-color);
+                cursor: pointer;
+                transition: 0.2s;
                 img{
-                    width: 100%;
-                    object-fit: cover;
+                    width: 197px;
+                    height: 60%;
+                    object-fit: scale-down;
                 }
+            }
+            #anggota-kategori:hover{
+                transform: translateY(-5px);
+                transition: 0.2s;
             }
         }
     }
