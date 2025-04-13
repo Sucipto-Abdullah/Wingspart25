@@ -32,8 +32,6 @@ kategori_array.push(disc_motor);
 kategori_array.push(rem);
 kategori_array.push(motor);
 
-console.log(kategori_array);
-
 let tampilan_kategori_array = [];
 
 for(let i=0; i<kategori_array.length; i++){
