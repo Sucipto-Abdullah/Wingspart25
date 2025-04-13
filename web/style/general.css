@@ -270,11 +270,11 @@ body{
 }
 .content-page{
     height: 800px;
-    background-color: var(--main-color);
     margin: auto;   
     width: 80%;
     padding: 20px;
     align-content: center;
     justify-content: center;
     text-align: center;
+    /* nanti css di kontennya taruh sini, dan jangan pakek Chat-GPT */
 }
