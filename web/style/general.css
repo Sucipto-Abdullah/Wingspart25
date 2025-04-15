@@ -39,7 +39,7 @@ body{
             height: 20px;
         }
         #notification{
-            height: 60px;
+            height: var(--icon-heigth);
             width: 60px;
             padding: 0%;
             margin: auto;
@@ -49,7 +49,7 @@ body{
             border: none;
             cursor: pointer;
             img{
-                height: var(--icon-heigth);
+                height: 100%;
             }
         }
         #keranjang{
@@ -305,5 +305,10 @@ body{
                 transition: 0.2s;
             }
         }
+    }
+    #select-all-box{
+        background-color: var(--main-color);
+        padding: 10px;
+        
     }
 }
