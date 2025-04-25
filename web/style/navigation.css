@@ -4,7 +4,8 @@ body{
 
 :root{
     --main-color:rgb(31, 35, 46);
-    --secondary-color:rgb(247, 247, 247);
+    --secondary-color:rgb(243, 243, 243);
+    --white-color: #FBFBFB;
 }
 
 .navigation{
@@ -71,7 +72,8 @@ body{
 .sub-notification.open{
     display: block;
     width: 17%;
-    height: 120px;
+    min-height: 80px;
+    max-height: 150px;
     background-color: var(--secondary-color);
     padding: 10px;
     justify-content: center;
@@ -98,6 +100,15 @@ body{
             padding-right: 5px;
         }
     }
+}
+.sub-notification.open::-webkit-scrollbar{
+    width: 3px;
+}
+.sub-notification.open::-webkit-scrollbar-track{
+    background-color: var(--secondary-color);
+}
+.sub-notification.open::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
 }
 .sub-notification{
     display: none;

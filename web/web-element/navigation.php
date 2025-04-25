@@ -1,3 +1,15 @@
+<?php
+    $notif_index = 1;
+
+    $notification_content = '<div class="notification-list">
+                                <a href="#" id="notification-link">
+                                    <img src="image/Product 1.png" class="notification-image" style="grid-area: image;">
+                                    <h1 class="notification-header" style="grid-area: header;">Judul Notifikasi</h1>
+                                    <p class="notification-text" style="grid-area: text;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                </a>
+                            </div>';
+?>
+
 <html>
     <head>
         <link rel="stylesheet" href="style/navigation.css">
@@ -14,13 +26,15 @@
             <button class="profile-button" style="grid-area: box-5;" onclick="showProfile()"><img src="icon/Profile picture icon default.svg" alt="profile-picture" id="profile-picture"></button>
         </nav>
         <div class="sub-notification open">
-            <div class="notification-list">
-                <a href="#" id="notification-link">
-                    <img src="image/Product 1.png" class="notification-image" style="grid-area: image;">
-                    <h1 class="notification-header" style="grid-area: header;">Judul Notifikasi</h1>
-                    <p class="notification-text" style="grid-area: text;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </a>
-            </div>
+            <?php
+                if($notif_index < 1){
+                    echo "there is no notification";
+                }else{
+                    for($i = 0; $i<$notif_index; $i++){
+                        echo $notification_content;
+                    }
+                }
+            ?>
         </div>
     </body>
 </html>
