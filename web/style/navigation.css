@@ -1,0 +1,70 @@
+body{
+    background-color: antiquewhite;
+    margin: auto;
+}
+
+:root{
+    --main-color:rgb(31, 35, 46);
+}
+
+.navigation{
+    width: 100%;
+    height: 60px;
+    background-color: var(--main-color);
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: auto;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 10% 50% 5% 5% 5%;
+    grid-template-areas: "box-1 box-2 box-3 box-4 box-5";
+    .wingspart25-logo{
+        max-height: 60px;
+        max-width: 100%;
+        align-content: center;
+        text-align: left;
+        img{
+            width: 50%;
+        }
+    }
+    button, .cart-button{
+        background-color: rgba(240, 248, 255, 0);
+        cursor: pointer;
+        border: none;
+        max-height: 60px;
+        width: 100%;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        img{
+            max-width: 60%;
+            max-height: 60%;
+        }
+    }
+    .search{
+        width: 100%;
+        height: 60px;
+        justify-content: center;
+        text-align: center;
+        align-content: center;
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-template-areas: "search submit";
+        .search-bar{
+            width: 90%;
+            text-align: left;
+            margin: auto;
+            margin-right: 5%;
+            padding: 5px;
+        }
+        button{
+            text-align: center;
+            width: 30%;
+            height: 100px;
+            img{
+                width: 100px;
+                object-fit: cover;
+            }
+        }
+    }
+}
