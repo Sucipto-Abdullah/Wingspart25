@@ -16,7 +16,7 @@
             echo 'purchase confirmation page';
             break;
         default:
-            echo 'KALO PENGEN NGELANJUTIN NIH KODINGAN JANGAN PAKEK A.I !!!!';
+            echo 'KALO PENGEN NGELANJUTIN NIH KODINGAN JANGAN PAKEK A.I !!!!<br>btw ini halaman home';
             break;
     }
 
