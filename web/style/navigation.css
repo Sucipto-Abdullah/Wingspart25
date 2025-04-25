@@ -1,5 +1,4 @@
 body{
-    background-color: antiquewhite;
     margin: auto;
 }
 
@@ -66,20 +65,5 @@ body{
                 object-fit: cover;
             }
         }
-    }
-}
-
-.sub-notification{
-    display: none;
-    h1{
-        text-align: center;
-    }
-}
-.sub-notification.open{
-    display: flex;
-    flex-direction: column;
-    h1{
-        text-align: left;
-        color: cadetblue;
     }
 }

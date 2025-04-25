@@ -14,8 +14,8 @@
             <button class="profile-button" style="grid-area: box-5;" onclick="showProfile()"><img src="icon/Profile picture icon default.svg" alt="profile-picture" id="profile-picture"></button>
         </nav>
 
-        <div class="sub-notification open">
-            <h1>hehe</h1>
+        <div class="navigation sub-notification open">
+            <h1>cok</h1>
         </div>
     </body>
 </html>
