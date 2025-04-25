@@ -4,6 +4,7 @@ body{
 
 :root{
     --main-color:rgb(31, 35, 46);
+    --secondary-color:rgb(247, 247, 247);
 }
 
 .navigation{
@@ -66,4 +67,38 @@ body{
             }
         }
     }
+}
+.sub-notification.open{
+    display: block;
+    width: 17%;
+    height: 120px;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    justify-content: center;
+    overflow: auto;
+    .notification-list a{
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 15% 85%;
+        grid-template-areas: "image header" "image text";
+        text-decoration: none;
+        color: black;
+        justify-content: center;
+        .notification-image{
+            max-height: 100px;
+        }
+        .notification-header{
+            max-width: 100%;
+            font-size: 1em;
+        }
+        .notification-text{
+            max-width: 100%;
+            font-size: 1em;
+            text-align: justify;
+            padding-right: 5px;
+        }
+    }
+}
+.sub-notification{
+    display: none;
 }
