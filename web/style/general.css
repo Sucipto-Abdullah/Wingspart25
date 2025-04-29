@@ -311,3 +311,25 @@ body{
         
     }
 }
+.foto img{
+    height: 200px;
+    width: 210px;
+    object-fit: cover;
+}
+.foto{
+    height: auto;
+    display: inline-block;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 5);
+    margin: 10px;
+}
+
+.desc{
+    text-align-last: left;
+    padding: 5px 10px 40px
+}
+
+.harga{
+    color: rgb(0, 42, 255);
+    text-align-last: left;
+    padding: 0px 10px 10px;
+}
