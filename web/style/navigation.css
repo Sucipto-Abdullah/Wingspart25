@@ -17,7 +17,7 @@ body{
     margin: auto;
     justify-content: center;
     display: grid;
-    grid-template-columns: 10% 50% 5% 5% 5%;
+    grid-template-columns: 100px 40% 100px 100px 100px;
     grid-template-areas: "box-1 box-2 box-3 box-4 box-5";
     .wingspart25-logo{
         max-height: 60px;
@@ -25,7 +25,7 @@ body{
         align-content: center;
         text-align: left;
         img{
-            width: 50%;
+            width: 100px;
         }
     }
     button, .cart-button{
@@ -33,7 +33,7 @@ body{
         cursor: pointer;
         border: none;
         max-height: 60px;
-        width: 100%;
+        width: 100px;  
         align-content: center;
         justify-content: center;
         text-align: center;
@@ -60,7 +60,7 @@ body{
         }
         button{
             text-align: center;
-            width: 30%;
+            width: 50px;
             height: 100px;
             img{
                 width: 100px;
@@ -71,11 +71,15 @@ body{
 }
 .sub-notification.open{
     display: block;
-    width: 17%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    left: 70%;
     min-height: 80px;
     max-height: 150px;
     background-color: var(--secondary-color);
     padding: 10px;
+    margin: auto;
     justify-content: center;
     overflow: auto;
     .notification-list a{
