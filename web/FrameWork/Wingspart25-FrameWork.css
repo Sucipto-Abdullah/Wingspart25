@@ -1,6 +1,7 @@
 body{
     margin: auto;
     overflow-x: hidden;
+    font-family: sans-serif;
 }
 
 :root{
@@ -90,19 +91,50 @@ body{
     }
 }
 
-.sub-notification.open{
-    display: block;
+@keyframes open_menu{
+    from{
+        height: 0px;
+    }
+    to{
+        height: 150px;
+    }
+}
+@keyframes close_menu{
+    0%{
+        display: block;
+        height: 0px;
+    }
+    99%{
+        height: 150px;
+    }
+    100%{
+        display: none;
+    }
+}
+
+
+.sub-notification{
     width: 300px;
     position: fixed;
     z-index: 1;
     left: 65%;
-    min-height: 80px;
+    /* min-height: 80px; */
     max-height: 150px;
     background-color: var(--secondary-color);
     padding: 10px;
     margin: auto;
     justify-content: center;
     overflow: auto;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    border-width: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.418);
+
+    animation-name: close_menu;
+    animation-duration: 0.2s;
+    animation-timing-function: ease;
+    display: none;
+
     .notification-list a{
         display: grid;
         grid-template-columns: 40% 60%;
@@ -135,8 +167,11 @@ body{
 .sub-notification.open::-webkit-scrollbar-thumb{
     background-color: var(--main-color);
 }
-.sub-notification{
-    display: none;
+.sub-notification.open{
+    display: block;
+    animation-name: open_menu;
+    animation-duration: 0.2s;
+    animation-timing-function: ease;
 }
 
 .margin-auto{
@@ -161,16 +196,52 @@ body{
 }
 .category-list{
     width: 100%;
-    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 40px;
+    overflow-x: auto;
     align-content: center;
     justify-content: center;
-    a{
-        background-color: blanchedalmond;
-        width: 80px;
-        height: 130px;
+    .category-object{
+        background-color: var(--transparant);
+        margin: auto;
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: black;
+        box-shadow: 0px 0px var(--main-color);
+        transition: 0.2s;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 70% 30%;
+        grid-template-areas: "box-1" "box-2";
         img{
-            max-width: 80px;
-            max-height: 130px;
+            max-width: 100%;
+            max-height: 100%;
+            margin: auto;
+            object-fit: scale-down;
+        }
+        p{
+            text-align: center;
+        }
+    }
+    .category-object:hover{
+        background-color: #FBFBFB;
+        box-shadow: 0px 5px var(--main-color);
+        transition: 0.2s;
+    }
+    .category-object.active{
+        box-shadow: 0px 5px var(--main-color);
+    }
+    .category-object.delete{
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        h1 i{
+            font-size: 2em;
         }
     }
 }
