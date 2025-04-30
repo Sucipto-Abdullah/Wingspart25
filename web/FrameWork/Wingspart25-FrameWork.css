@@ -6,11 +6,13 @@ body{
 
 :root{
     --main-color:rgb(31, 35, 46);
-    --secondary-color:rgb(248, 248, 248);
+    --secondary-color:rgb(255, 255, 255);
+    --prime-color:rgb(65, 72, 94);
+    --light-color:rgb(52, 68, 119);
     --white-color: #FBFBFB;
     --transparant: rgba(255, 255, 255, 0);
 }
-.color-main{
+.bg-main{
     background-color: var(--main-color);
 }
 .bg-secondary{
@@ -19,6 +21,11 @@ body{
 .bg-transparant{
     background-color: var(--transparant);
     border: none;
+}
+
+.bg-light-color{
+    background-color: var(--light-color);
+    color: var(--secondary-color);
 }
 
 .navigation{
@@ -50,6 +57,15 @@ body{
 
 .btn{
     cursor: pointer;
+    border: none;
+}
+
+.btn:hover{
+    filter: brightness(1.1);
+}
+
+.account-btn{
+    padding: 8px 21px;
 }
 
 .btn.notification-btn, .profile-btn, .search-btn, .cart-btn{
@@ -117,19 +133,21 @@ body{
     width: 300px;
     position: fixed;
     z-index: 1;
-    left: 65%;
-    min-height: 80px;
-    max-height: 150px;
+    display: block;
+    left: 70%;
+    padding: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 0;
     background-color: var(--secondary-color);
-    padding: 10px;
-    margin: auto;
     justify-content: center;
     overflow: auto;
     border-style: solid;
-    border-color: var(--secondary-color);
     border-width: 5px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.418);
-    display: none;
+    border-color: rgba(255, 255, 255, 0);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0);
+
+    transition: 0.1s ease-in-out;
 
     .notification-list a{
         display: grid;
@@ -154,17 +172,28 @@ body{
         }
     }
 }
-.sub-notification.open::-webkit-scrollbar{
+.sub-notification::-webkit-scrollbar{
     width: 3px;
 }
-.sub-notification.open::-webkit-scrollbar-track{
+.sub-notification::-webkit-scrollbar-track{
     background-color: var(--secondary-color);
 }
-.sub-notification.open::-webkit-scrollbar-thumb{
+.sub-notification::-webkit-scrollbar-thumb{
     background-color: var(--main-color);
 }
 .sub-notification.open{
     display: block;
+    left: 65%;
+    height: 150px;
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    border-width: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.418);
+
+    transition: 0.1s ease-in-out;
 }
 
 .margin-auto{
@@ -183,6 +212,7 @@ body{
     padding: 5px 40px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 2px var(--main-color);
     h1{
         text-align: center;
     }
@@ -205,7 +235,7 @@ body{
         text-decoration: none;
         color: black;
         box-shadow: 0px 0px var(--main-color);
-        transition: 0.2s;
+        transition: 0.2s ease-in-out;
         padding: 10px;
         display: grid;
         grid-template-columns: 100%;
@@ -223,11 +253,12 @@ body{
     }
     .category-object:hover{
         background-color: #FBFBFB;
-        box-shadow: 0px 5px var(--main-color);
-        transition: 0.2s;
+        box-shadow: 0px 5px var(--prime-color);
+        transition: 0.2s ease;
     }
     .category-object.active{
         box-shadow: 0px 5px var(--main-color);
+        transition: 0.2s ease;
     }
     .category-object.delete{
         align-content: center;
@@ -236,5 +267,45 @@ body{
         h1 i{
             font-size: 2em;
         }
+    }
+}
+
+.profile-menu{
+    position: fixed;
+    z-index: 1;
+    background-color: var(--secondary-color);
+    width: 150px;
+    height: 0px;
+    text-align: center;
+    align-items: center;
+    padding: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    overflow: auto;
+    overflow-y: hidden;
+    transition: 0.1s ease-in-out;
+    img, button{
+        opacity: 1;
+    }
+}
+.profile-menu.open{
+    display: flex;
+    padding: 10px;
+    height: 170px;
+    gap: 20px;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    border-width: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.418);
+    transition: 0.1s ease-in-out;
+    img, button{
+        opacity: 1;
     }
 }

@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="FrameWork/Wingspart25-FrameWork.css">
     </head>
     <body> 
-        <nav class="navigation color-main">
+        <nav class="navigation bg-main">
             <div class="container">
                 <a href="index.php?page=home" class="wingspart25-logo" style="grid-area: box-1"></a>
                 <form action="navigation.php" name="search" class="form search-form" style="grid-area: box-2">
@@ -39,6 +39,17 @@
                 }
             ?>
         </div>
+
+        <div class="profile-menu" id="profile-menu">
+            <?php if($logined) {?>
+
+            <?php } else{?>
+                <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
+                <button class="btn account-btn bg-light-color">Login</button>
+                <button class="btn account-btn bg-light-color">Create Account</button>
+            <?php }?>
+        </div>
+
     </body>
     <script src="script/navigation.js"></script>
     <script src="FrameWork/Wingspart25-FrameWork.js"></script>
