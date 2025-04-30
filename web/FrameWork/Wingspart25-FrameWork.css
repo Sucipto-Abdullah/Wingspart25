@@ -118,7 +118,7 @@ body{
     position: fixed;
     z-index: 1;
     left: 65%;
-    /* min-height: 80px; */
+    min-height: 80px;
     max-height: 150px;
     background-color: var(--secondary-color);
     padding: 10px;
@@ -129,10 +129,6 @@ body{
     border-color: var(--secondary-color);
     border-width: 5px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.418);
-
-    animation-name: close_menu;
-    animation-duration: 0.2s;
-    animation-timing-function: ease;
     display: none;
 
     .notification-list a{
@@ -169,9 +165,6 @@ body{
 }
 .sub-notification.open{
     display: block;
-    animation-name: open_menu;
-    animation-duration: 0.2s;
-    animation-timing-function: ease;
 }
 
 .margin-auto{

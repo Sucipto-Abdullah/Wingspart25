@@ -27,7 +27,7 @@
                 echo 'purchase confirmation page';
                 break;
             default:
-                include "web-element/catogory.php";
+                include "web-element/category.php";
                 echo 'KALO PENGEN NGELANJUTIN NIH KODINGAN JANGAN PAKEK A.I !!!!<br>btw ini halaman home';
                 break;
         }
