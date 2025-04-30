@@ -1,12 +1,12 @@
+body{
+    margin: auto;
+}
 :root{
     --icon-heigth : 40px;
     --main-color : rgb(250, 250, 250);
     --background-color: rgb(233, 233, 233);
 }
 
-body{
-    margin: auto;
-}
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,226;1,226&family=Staatliches&display=swap');
 
 .header-menu{

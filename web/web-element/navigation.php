@@ -12,18 +12,21 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="style/navigation.css">
+        <!-- <link rel="stylesheet" href="style/navigation.css"> -->
+        <link rel="stylesheet" href="FrameWork/Wingspart25-FrameWork.css">
     </head>
     <body> 
-        <nav class="navigation" id="navigation">
-            <a href="index.php?page=home" style="grid-area: box-1;" class="wingspart25-logo"><img src="icon/WingPart25 logo replica.svg" alt="Wingspart25"></a>
-            <form action="navigation.php" name="search" class="search" style="grid-area: box-2;">
-                <input class="search-bar" placeholder="search" style="grid-area: search">
-                <button type="submit" name="submit" style="grid-area: submit;"><img src="icon/search-con.svg"></button>
-            </form>
-            <a href="index.php?page=cart" style="grid-area: box-3;" class="cart-button"><img src="icon/icon keranjang.svg" alt="keranjang"></a>
-            <button class="notification-button" id="notification-button" style="grid-area: box-4;" onclick="submenu_open(this.value)" value="notification"><img src="icon/notification-icon.svg" alt="notification"></button>
-            <button class="profile-button" id="profile-button" style="grid-area: box-5;" onclick="submenu_open(this.value)" value="profile"><img src="icon/Profile picture icon default.svg" alt="profile-picture" id="profile-picture"></button>
+        <nav class="navigation color-main">
+            <div class="container">
+                <a href="index.php?page=home" class="wingspart25-logo" style="grid-area: box-1"></a>
+                <form action="navigation.php" name="search" class="form search-form" style="grid-area: box-2">
+                    <input class="input search-bar" placeholder="search">
+                    <button class="btn search-btn bg-transparant" type="submit" name="submit"></button>
+                </form>
+                <a class="btn cart-btn bg-transparant" href="index.php?page=cart" class="cart-button" style="grid-area: box-3"><img src="icon/icon keranjang.svg" alt="keranjang"></a>
+                <button class="btn notification-btn bg-transparant" onclick="popup_menu(this.value)" value="notification" style="grid-area: box-4"><img src="icon/notification-icon.svg" alt="notification" ></button>
+                <button class="btn profile-btn bg-transparant" onclick="popup_menu(this.value)" style="grid-area: box-5;" value="profile"><img src="icon/Profile picture icon default.svg" alt="profile-picture" id="profile-picture"></button>
+            </div>
         </nav>
         <div class="sub-notification" id="sub-notification">
             <?php
@@ -38,4 +41,5 @@
         </div>
     </body>
     <script src="script/navigation.js"></script>
+    <script src="FrameWork/Wingspart25-FrameWork.js"></script>
 </html>
