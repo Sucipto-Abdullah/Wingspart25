@@ -12,6 +12,9 @@ body{
 .color-main{
     background-color: var(--main-color);
 }
+.bg-secondary{
+    background-color: var(--secondary-color);
+}
 .bg-transparant{
     background-color: var(--transparant);
     border: none;
@@ -134,4 +137,40 @@ body{
 }
 .sub-notification{
     display: none;
+}
+
+.margin-auto{
+    margin: auto;
+}
+
+.content-center{
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.category{
+    width: 60%;
+    margin-top: 30px;
+    padding: 5px 40px;
+    display: flex;
+    flex-direction: column;
+    h1{
+        text-align: center;
+    }
+}
+.category-list{
+    width: 100%;
+    background-color: aqua;
+    align-content: center;
+    justify-content: center;
+    a{
+        background-color: blanchedalmond;
+        width: 80px;
+        height: 130px;
+        img{
+            max-width: 80px;
+            max-height: 130px;
+        }
+    }
 }

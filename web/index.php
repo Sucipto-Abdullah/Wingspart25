@@ -10,6 +10,7 @@
         $conection = mysqli_connect($database_server, $database_user, $database_password, $database_name);
 
         $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+        $category = 'all';
         include "web-element/navigation.php";
 
         switch($page){
@@ -26,6 +27,7 @@
                 echo 'purchase confirmation page';
                 break;
             default:
+                include "web-element/catogory.php";
                 echo 'KALO PENGEN NGELANJUTIN NIH KODINGAN JANGAN PAKEK A.I !!!!<br>btw ini halaman home';
                 break;
         }
