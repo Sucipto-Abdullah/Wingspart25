@@ -46,7 +46,7 @@
             <?php } else{?>
                 <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
                 <button class="btn account-btn bg-light-color">Login</button>
-                <button class="btn account-btn bg-light-color">Create Account</button>
+                <a href="index.php?page=create_account"><button class="btn account-btn bg-light-color">Create Account</button></a>
             <?php }?>
         </div>
 
