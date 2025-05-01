@@ -1,6 +1,7 @@
 body{
     margin: auto;
     align-content: center;
+    align-items: center;
     height: 100dvh;
     background-color: rgb(228, 228, 228);
 }
@@ -119,5 +120,43 @@ body{
                 filter: brightness(0.8);
             }
         }
+    }
+}
+
+.create.succsessful{
+    margin: auto;
+    width: 60%;
+    height: 640px;
+    background-color: var(--secondary-color);
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    h1 i{
+        font-size: 2em;
+        color: green;
+        margin-bottom: 0;
+        padding: 0%;
+    }
+    a{
+        text-decoration: none;
+    }
+    h1{
+        margin: auto;
+        margin-top: 15pt;
+        margin-bottom: 15pt;
+    }
+    .back-button{
+        background-color: var(--main-color);
+        color: var(--secondary-color);
+        width: 130pt;
+        height: 30pt;
+        border: none;
+        transition: 0.1s;
+        border-radius: 5pt;
+    }
+    .back-button:hover{
+        filter: brightness(1.2);
+    }.back-button:active{
+        filter: brightness(0.5);
     }
 }

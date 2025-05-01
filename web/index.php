@@ -14,10 +14,9 @@
 
         switch($page){
             case 'login':
-                echo 'login page';
+                include "web-element/login.php";
                 break;
             case 'create_account':
-                // echo 'create account page';
                 include "web-element/create_account.php";
                 break;
             case 'cart':
