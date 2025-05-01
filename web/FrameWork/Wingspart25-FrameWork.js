@@ -32,18 +32,4 @@ function popup_menu(value){
             menu_notification.classList.toggle("open");
         }
     }
-    if(menu_profile.classList.contains("open") || menu_notification.classList.contains("open")){
-        document.querySelector("body").style.overflow = 'hidden';
-    }
 }
-
-// function scroll(value){
-//     let category_list = document.getElementById("category");
-//     const category_object = document.querySelector(".category-object");
-//     if(value == "left"){
-//         category_list.scroll({left : -200});
-//     }
-//     else if(value == "right"){
-//         category_list.scrollBy({left : 200});
-//     }
-// }

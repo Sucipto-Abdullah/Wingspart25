@@ -13,12 +13,13 @@ $phone_number = $_POST['number'];
 $date = date('Y-d-m H:i:s');
 $notification = 0;
 
-
 $database_server = 'localhost';
 $database_user = 'root';
 $database_password = '';
 $database_name = 'Wingspart25';
 $conection = '';
+
+$id_user = 0;
 
 try{
     $conection = mysqli_connect($database_server, $database_user, $database_password, $database_name);
@@ -28,6 +29,14 @@ try{
         $stmt = $conection->prepare("insert into table_akun_pengguna(username, password, alamat, nomor_tellphone, email, tanggal_daf, notification) value(?,?,?,?,?,?, ?);");
         $stmt->bind_param("ssssssi", $username, $password, $address, $phone_number, $email, $date, $notification);
         $stmt->execute();
+
+        $sql_code_login = "SELECT * FROM table_akun_pengguna WHERE username = '{$username}';";
+        $sql_get_query = mysqli_query($conection, $sql_code_login);
+        if(mysqli_num_rows($sql_get_query) > 0){
+            $baris_data = mysqli_fetch_assoc($sql_get_query);
+            $id_user = $baris_data['id'];
+        }
+
         mysqli_close($conection);
     }
 }catch(mysqli_sql_exception){
@@ -37,15 +46,15 @@ try{
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="FrameWork/Wingspart25-FrameWork.css">
-    <link rel="stylesheet" href="style/create.css">
+    <link rel="stylesheet" href="../FrameWork/Wingspart25-FrameWork.css">
+    <link rel="stylesheet" href="../style/create.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
     <div class="create succsessful">
         <h1><i class="bi bi-check-circle"></i></h1>
         <h1>Akunmu telah berhasil dibuat :D</h1>
-        <a href="../index.php?page=home"><button class="back-button">Kembali ke beranda</button></a>
+        <a href="../index.php?page=home&logined=true&id_user=<?=$id_user?>"><button class="back-button">Kembali ke beranda</button></a>
     </div>
 </body>
 </html>

@@ -112,6 +112,7 @@ body{
                 border-radius: 3pt;
                 color: var(--secondary-color);
                 cursor: pointer;
+                margin-top: 10pt;
             }
             button:hover{
                 filter: brightness(1.1);
@@ -153,6 +154,7 @@ body{
         border: none;
         transition: 0.1s;
         border-radius: 5pt;
+        cursor: pointer;
     }
     .back-button:hover{
         filter: brightness(1.2);

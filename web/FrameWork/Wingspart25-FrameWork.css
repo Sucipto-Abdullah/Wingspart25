@@ -172,6 +172,12 @@ body{
             padding-right: 5px;
         }
     }
+    .notification-nothing{
+        h1{
+            font-size: 10pt;
+            text-align: center;
+        }
+    }
 }
 .sub-notification::-webkit-scrollbar{
     width: 3px;
@@ -185,7 +191,8 @@ body{
 .sub-notification.open{
     display: block;
     left: 65%;
-    height: 150px;
+    min-height: 80px;
+    max-height: 150px;
     padding: 10px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -297,7 +304,8 @@ body{
     z-index: 1;
     background-color: rgba(255, 255, 255, 0);
     width: 150px;
-    height: 0px;
+    min-height: 0px;
+    max-height: 0px;
     text-align: center;
     align-items: center;
     padding: 0px;
@@ -313,22 +321,28 @@ body{
     overflow: auto;
     overflow-y: hidden;
     transition: 0.1s ease-in-out;
-    img, button{
-        opacity: 1;
+    img, button, p{
+        opacity: 0;
+    }
+    p{
+        font-size: 10pt;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
 .profile-menu.open{
     display: flex;
     padding: 10px;
-    height: 170px;
-    gap: 20px;
+    min-height: 100pt;
+    max-height: 100dvh;
+    gap: 10pt;
     background-color: var(--secondary-color);
     border-style: solid;
     border-color: var(--secondary-color);
     border-width: 5px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.418);
     transition: 0.1s ease-in-out;
-    img, button{
+    img, button, p{
         opacity: 1;
     }
     p{
