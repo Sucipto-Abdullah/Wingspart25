@@ -11,29 +11,33 @@
 
         $page = isset($_GET['page']) ? $_GET['page'] : 'home';
         $category = 'all';
-        include "web-element/navigation.php";
 
         switch($page){
             case 'login':
                 echo 'login page';
                 break;
             case 'create_account':
-                echo 'create account page';
+                // echo 'create account page';
+                include "web-element/create_account.php";
                 break;
             case 'cart':
+                include "web-element/navigation.php";
+                include "web-element/footer.php";
                 echo 'cart page';
                 break;
             case 'confirmation':
+                include "web-element/navigation.php";
+                include "web-element/footer.php";
                 echo 'purchase confirmation page';
                 break;
             default:
+                include "web-element/navigation.php";
                 include "web-element/category.php";
-                echo 'KALO PENGEN NGELANJUTIN NIH KODINGAN JANGAN PAKEK A.I !!!!<br>btw ini halaman home';
+                include "web-element/footer.php";
                 break;
+            }
         }
-
-        include "web-element/footer.php";
-    }
+        
     catch(mysqli_sql_exception){
         echo"404 was Not found";
     }

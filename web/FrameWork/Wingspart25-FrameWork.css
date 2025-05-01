@@ -1,6 +1,7 @@
 body{
     margin: auto;
     overflow-x: hidden;
+    overflow-y: scroll;
     font-family: sans-serif;
 }
 
@@ -131,7 +132,7 @@ body{
 
 .sub-notification{
     width: 300px;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     display: block;
     left: 70%;
@@ -139,7 +140,7 @@ body{
     padding-left: 10px;
     padding-right: 10px;
     height: 0;
-    background-color: var(--secondary-color);
+    background-color: rgba(255, 255, 255, 0);
     justify-content: center;
     overflow: auto;
     border-style: solid;
@@ -188,6 +189,7 @@ body{
     padding: 10px;
     overflow-x: hidden;
     overflow-y: auto;
+    background-color: var(--secondary-color);
     border-style: solid;
     border-color: var(--secondary-color);
     border-width: 5px;
@@ -212,7 +214,7 @@ body{
     padding: 5px 40px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 2px var(--main-color);
+    box-shadow: 0px 2px rgb(102, 106, 116);
     h1{
         text-align: center;
     }
@@ -271,9 +273,9 @@ body{
 }
 
 .profile-menu{
-    position: fixed;
+    position: absolute;
     z-index: 1;
-    background-color: var(--secondary-color);
+    background-color: rgba(255, 255, 255, 0);
     width: 150px;
     height: 0px;
     text-align: center;
@@ -300,6 +302,7 @@ body{
     padding: 10px;
     height: 170px;
     gap: 20px;
+    background-color: var(--secondary-color);
     border-style: solid;
     border-color: var(--secondary-color);
     border-width: 5px;
@@ -307,5 +310,56 @@ body{
     transition: 0.1s ease-in-out;
     img, button{
         opacity: 1;
+    }
+}
+.footer{
+    background-color: var(--secondary-color);
+    margin: auto;
+    width: 100%;
+    justify-content: center;
+    margin-top: 100dvh;
+    box-shadow: 0pt -1.5pt rgb(102, 102, 102);
+    padding-top: 20pt;
+    .footer-content{
+        /* background-color: aqua; */
+        width: 60%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 80% 20%;
+        grid-template-areas:
+        "box-1 box-2"
+        "box-3 box-2";
+        .product-service{
+            height: 250pt;   
+        }
+        .about-us{
+            box-shadow: -1.5pt 0px rgb(102, 102, 102);
+            padding-left: 30pt;
+            height: 90%;
+        }
+        h1{
+            font-size: 15pt;
+        } 
+        ul{
+            padding: 0;
+        }
+        li{ 
+            list-style-type: none;
+            list-style-position: inside;
+            margin: auto;
+            margin-left: 0;
+            margin-bottom: 10px;
+            /* background-color: aquamarine; */
+            a{
+                font-size: 12pt;
+                color: rgb(63, 63, 63);
+                text-decoration: none;
+                /* font-style; */
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+        }
     }
 }

@@ -32,4 +32,7 @@ function popup_menu(value){
             menu_notification.classList.toggle("open");
         }
     }
+    if(menu_profile.classList.contains("open") || menu_notification.classList.contains("open")){
+        document.querySelector("body").style.overflow = 'hidden';
+    }
 }
