@@ -277,7 +277,7 @@ body{
     }
     .category-object.active{
         box-shadow: 0px 5px var(--main-color);
-        transition: 0.2s ease;
+        transition: 2s ease;
     }
     .category-object.delete{
         align-content: center;

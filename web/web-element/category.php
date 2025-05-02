@@ -1,19 +1,14 @@
 <?php
-$category = array(
-    array("nama" => 'Helm'),
-    array("nama" => 'Spion'),
-    array("nama" => 'Knalpot'),
-    array("nama" => 'Head Lamp'),
-    array("nama" => 'Disc Motor'),
-    array("nama" => 'Rem'),
-    array("nama" => 'Motor')
+
+$_SESSION['category-list'] = array(
+    array('nama' => 'Helm'),
+    array('nama' => 'Spion'),
+    array('nama' => 'Knalpot'),
+    array('nama' => 'Head lamp'),
+    array('nama' => 'Rem'),
+    array('nama' => 'Disc motor'),
+    array('nama' => 'Motor'),
 );
-
-$logined = $logined;
-$id_user = $id_user;
-// echo $id_user;
-
-// $account = $_GET['account'];
 
 ?>
 <!DOCTYPE html>
@@ -27,18 +22,17 @@ $id_user = $id_user;
         <h1 style="grid-area: box-1">Kategori</h1>
         <!-- <button class="btn bg-transparant left-scroll" id="left-scroll" style="grid-area: box-2;" onclick="scroll(this.value)" value="left"><i class="bi bi-arrow-left-circle-fill"></i></button> -->
         <div class="category-list" id="category" style="grid-area: box-2;">
-            <a id="all" class='category-object  <?= $_GET['category'] == 'all' ? 'active' : ''?> delete' href='index.php?category=all&logined=true&id_user=<?=$id_user?>'>
+            <a id="all" class='category-object  <?= $_GET['category'] == 'all' ? 'active' : ''?> delete' href='index.php?category=all'>
                 <h1><i class="bi bi-filter-right"></i></h1>
                 <p>All</p>
             </a>
-            <?php for($i=0; $i<count($category); $i++) {?>
-                <a class='category-object <?=$_GET['category'] == $category[$i]["nama"] ? 'active' : ''?>' id='<?=$category['nama']?>' href="index.php?category=<?=$category[$i]["nama"]?>&logined=true&id_user=<?=$id_user?>">
-                    <img style="grid-area: box-1;" src="image/<?= $category[$i]["nama"] ?>.png">
-                    <p style="grid-area: box-2;"><?= $category[$i]["nama"] ?></p>
+            <?php for($i=0; $i < count($_SESSION['category-list']) ; $i++) {?>
+                <a class='category-object <?=$_GET['category'] == $_SESSION['category-list'][$i]['nama'] ? 'active' : ''?>' id='<?=$_SESSION['category-list'][$i]['nama']?>' href="index.php?category=<?=$_SESSION['category-list'][$i]['nama']?>">
+                    <img style="grid-area: box-1;" src="image/<?=$_SESSION['category-list'][$i]['nama']?>.png">
+                    <p style="grid-area: box-2;"><?=$_SESSION['category-list'][$i]['nama']?></p>
                 </a>
             <?php }?>
         </div>
-        <!-- <button class="btn bg-transparant right-scroll" id="right-scroll" style="grid-area: box-2;" onclick="scroll(this.value)" value='right'><i class="bi bi-arrow-right-circle-fill"></i></button> -->
     </div>
 </body>
 <script src="FrameWork/Wingspart25-FrameWork.js"></script>

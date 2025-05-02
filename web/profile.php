@@ -1,4 +1,6 @@
-
+<?php
+include "web-element/navigation.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
