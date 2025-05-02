@@ -333,3 +333,47 @@ body{
     text-align-last: left;
     padding: 0px 10px 10px;
 }
+
+.img-card{
+    height: 400px;
+    width: 350px;
+    border-radius: 20px;
+}
+
+.card{
+    margin: 150px auto;
+    width: 770px;
+}
+
+.text-card{
+    height: 400px;
+    width: 350px;
+    padding: 1px;
+    float: right;
+
+}
+
+.icon-card h5{
+    color: #fff;
+    float: right;
+    position: relative;
+    left: auto;
+    right: 125px;
+    top: -18px;
+}
+
+.icon-card img{
+    position: relative;
+    left: 15px;
+}
+.icon-card {
+    padding: 5px;
+    background-color: #22345c;
+    border-radius: 5px;
+}
+
+.status-card h6{
+    background-color: #000000;
+    width: 500px;
+    height: 0px;
+}
