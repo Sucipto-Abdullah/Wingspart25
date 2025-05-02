@@ -1,28 +1,9 @@
 <?php
 
-$_SESSION['login-failed'] = false;
+include "includes/signIn.inc.php";
 
-if(isset($_POST['button-login-act'])){
+$error = isset($_GET['error']) ? $_GET['error'] : 'none';
 
-    if( $_POST['username_input'] != '' && $_POST['password_input'] != ''){
-
-        $username_input = $_POST['username_input'];
-        $password_input = $_POST['password_input'];
-
-        $sql_code = "SELECT * FROM table_akun_pengguna WHERE username = '{$username_input}' AND password = '{$password_input}'";
-        $result = mysqli_query($_SESSION['connection'], $sql_code);
-        
-        if(mysqli_num_rows($result) > 0 ){
-            $target = mysqli_fetch_assoc($result);
-            if( $username_input == $target['username'] && $password_input == $target['password'] ){
-                header('Location: ../web../index.php?page=cart');
-                echo $_SESSION['account']['username'];
-            }
-        }
-    } else{
-        $_SESSION['login-failed'] = true;
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -44,10 +25,10 @@ if(isset($_POST['button-login-act'])){
         </div>
         <div class="create" style="grid-area: box-2">
             <h1>Log your account</h1>
-            <?php if( $_SESSION['login-failed']){ ?>
-            <p>Maaf, username dan password tidak ditemukan</p>
+            <?php if( $error != 'none'){ ?>
+            <p><?= $error ?></p>
             <?php }?>
-            <form method="POST">
+            <form action="includes/signIn.inc.php" method="POST">
                 <label for="">Username :</label><br>
                 <input type="text" name="username_input"><br>
                 <label for="">Password :</label><br>

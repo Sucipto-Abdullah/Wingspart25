@@ -1,6 +1,8 @@
 <?php
     $notif_index = 1;
 
+    include "includes/databaseServer.inc.php";
+
     $notification_content = '<div class="notification-list">
                                 <a href="#" id="notification-link">
                                     <img src="image/Product 1.png" class="notification-image" style="grid-area: image;">
@@ -43,7 +45,7 @@
         </div>
 
         <div class="profile-menu" id="profile-menu">
-            <?php if($_SESSION['logined'] == true) {?>
+            <?php if($login) {?>
                 <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
                 <p><b>hehe</b></p>
                 <a href="profile.php"><button class="btn account-btn bg-light-color">Profile</button></a>
@@ -51,7 +53,7 @@
             <?php } else {?>
                 <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
                 <p><b>Anda Belum Login</b></p>
-                <a href="login.php"><button onclick="" class="btn account-btn bg-light-color">Login</button></a>
+                <a href="login.php"><button onclick="" class="btn account-btn bg-light-color">Sign In</button></a>
             <?php }?>
         </div>
 
