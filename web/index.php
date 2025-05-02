@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     $database_server = 'localhost';
     $database_user = 'root';
     $database_password = '';

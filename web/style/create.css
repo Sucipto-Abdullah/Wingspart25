@@ -19,7 +19,7 @@ body{
     background-color: rgb(250, 250, 250);
     padding: 0%;
     width: 50%;
-    height: 640px;
+    min-height: 640px;
     margin: auto;
     display: grid;
     grid-template-columns: 30% 60%;
@@ -31,18 +31,19 @@ body{
         color: var(--secondary-color);
         margin: auto;
         height: 100%;
+        max-width: 100%;
         align-items: center;
         align-content: center;
         text-align: center;
         h1{
             text-align: left;
-            font-size: 25.88pt;
+            font-size: 130%;
         }
         p{
             text-align: justify;
             line-height: 20pt;
             margin-bottom: 0;
-            font-size: 10pt;
+            font-size: 50%;
             color: rgb(188, 209, 219);
         }
         ul {
@@ -64,6 +65,7 @@ body{
     }
     .create{
         padding: 20pt;
+        padding-left: 10%;
         h1{
             font-size: 21pt;
             box-shadow: 0px 2px var(--main-color);

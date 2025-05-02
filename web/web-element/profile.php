@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,5 +15,9 @@
         <li><?= $account['address'] ?></li>
     </ul>
     <P>Belum ku desain halaman ini</P>
+    <form method="POST" action="script/delete.php">
+        <button>apus akun</button>
+    </form>
+        
 </body>
 </html>

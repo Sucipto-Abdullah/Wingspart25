@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style/create.css">
 </head>
 <body>
-    
     <div class="create-account-container">
         <div class="sambutan" style="grid-area: box-1">
             <h1>Selamat Datang di Wingspart25</h1>
