@@ -9,6 +9,12 @@ $category = array(
     array("nama" => 'Motor')
 );
 
+$logined = $logined;
+$id_user = $id_user;
+// echo $id_user;
+
+// $account = $_GET['account'];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,12 +27,12 @@ $category = array(
         <h1 style="grid-area: box-1">Kategori</h1>
         <!-- <button class="btn bg-transparant left-scroll" id="left-scroll" style="grid-area: box-2;" onclick="scroll(this.value)" value="left"><i class="bi bi-arrow-left-circle-fill"></i></button> -->
         <div class="category-list" id="category" style="grid-area: box-2;">
-            <a id="all" class='category-object  <?= $_GET['category'] == 'all' ? 'active' : ''?> delete' href='index.php?category=all'>
+            <a id="all" class='category-object  <?= $_GET['category'] == 'all' ? 'active' : ''?> delete' href='index.php?category=all&logined=true&id_user=<?=$id_user?>'>
                 <h1><i class="bi bi-filter-right"></i></h1>
                 <p>All</p>
             </a>
             <?php for($i=0; $i<count($category); $i++) {?>
-                <a class='category-object <?=$_GET['category'] == $category[$i]["nama"] ? 'active' : ''?>' id='<?=$category['nama']?>' href="index.php?category=<?=$category[$i]["nama"]?>">
+                <a class='category-object <?=$_GET['category'] == $category[$i]["nama"] ? 'active' : ''?>' id='<?=$category['nama']?>' href="index.php?category=<?=$category[$i]["nama"]?>&logined=true&id_user=<?=$id_user?>">
                     <img style="grid-area: box-1;" src="image/<?= $category[$i]["nama"] ?>.png">
                     <p style="grid-area: box-2;"><?= $category[$i]["nama"] ?></p>
                 </a>
