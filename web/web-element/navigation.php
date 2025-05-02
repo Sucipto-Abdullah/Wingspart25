@@ -1,5 +1,5 @@
 <?php
-    $notif_index = 5;
+    $notif_index = $account['notification-wait'];
 
     $notification_content = '<div class="notification-list">
                                 <a href="#" id="notification-link">
@@ -8,6 +8,9 @@
                                     <p class="notification-text" style="grid-area: text;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 </a>
                             </div>';
+    $notification_nothing = '<div class="notification-nothing">
+                                <h1>tidak ada notifikisai yang menunggu</h1>
+                            </div>'
 ?>
 
 <html>
@@ -31,7 +34,7 @@
         <div class="sub-notification" id="sub-notification">
             <?php
                 if($notif_index < 1){
-                    echo "there is no notification";
+                    echo $notification_nothing;
                 }else{
                     for($i = 0; $i<$notif_index; $i++){
                         echo $notification_content;
@@ -41,12 +44,16 @@
         </div>
 
         <div class="profile-menu" id="profile-menu">
-            <?php if($logined) {?>
-
+            <?php if($logined && $id_user != 0) {?>
+                <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
+                <p><b><?=$account['username']?></b></p>
+                <a href="index.php?page=profile"><button class="btn account-btn bg-light-color">Profile</button></a>
+                <a href="index.php?page=login"><button class="btn account-btn bg-light-color">Change Account</button></a>
             <?php } else{?>
                 <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
                 <p><b>Anda Belum Login</b></p>
-                <button class="btn account-btn bg-light-color">Login</button>
+                <a href="index.php?page=login"><button class="btn account-btn bg-light-color">Login</button></a>
+                <!-- <a href="index.php?page=create_account"><button class="btn account-btn bg-light-color">Buat Akun</button></a> -->
             <?php }?>
         </div>
 
