@@ -47,14 +47,24 @@
 
         <div class="profile-menu" id="profile-menu">
             <?php if( isset($_COOKIE['login_status']) && $_COOKIE['login_status'] === "1" ) {?>
+
                 <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
-                <p><b><?= $_COOKIE['username'] ?></b></p>
-                <a href="profile.php"><button class="btn account-btn bg-light-color">Profile</button></a>
-                <a href="signIn.php"><button class="btn account-btn bg-light-color">Change Account</button></a>
+                <p class="profile-name" ><b><?= $_COOKIE['username'] ?> <?= $_COOKIE['role'] == 'admin' ? '<br>(admin)' : ''?></b></p>
+                <a href="profile.php"><button class="btn account-btn ">Profile <i class="bi bi-person-fill"></i></button></a>
+
+                <?php if( isset($_COOKIE['role']) && $_COOKIE['role'] == 'admin' ) {?>
+                    <a href="product.php"><button class="btn account-btn ">Our Product <i class="bi bi-hdd-stack"></i></button></a>
+                <?php } ?>
+
+                <a href="signIn.php"><button class="btn account-btn ">Switch User <i class="bi bi-arrow-repeat"></i></button></a>
+                <a href="signIn.php"><button class="btn account-btn ">Sign out <i class="bi bi-box-arrow-right"></i></button></a>
+
             <?php } else {?>
+
                 <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
                 <p><b>Anda Belum Login</b></p>
-                <a href="signIn.php"><button onclick="" class="btn account-btn bg-light-color">Sign In</button></a>
+                <a href="signIn.php"><button onclick="" class="btn account-btn">Sign In <i class="bi bi-box-arrow-in-left"></i></button></a>
+
             <?php }?>
         </div>
 

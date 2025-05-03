@@ -101,6 +101,7 @@ function login_account($connection, $username){
         setcookie('address', $row['alamat'], time() + (86400*2), '/');
         setcookie('phone-number', $row['nomor_tellphone'], time() + (86400*2), '/');
         setcookie('notification-wait', (string)$row['notification'], time() + (86400*2), '/');
+        setcookie('role', $row['role_pengguna'], time() + (86400*2), '/');
 
     }
 }

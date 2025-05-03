@@ -117,3 +117,7 @@ body{
 .sub-notification{
     display: none;
 }
+
+.account-btn{
+    width: 100%;
+}
