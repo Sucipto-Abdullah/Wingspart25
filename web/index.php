@@ -2,6 +2,9 @@
     session_start();
 
     include "includes/databaseServer.inc.php";
+    include "includes/function.inc.php";
+
+    role_check($database_connection);
 
     include "web-element/navigation.php";
 

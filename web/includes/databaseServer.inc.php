@@ -6,6 +6,7 @@ $database_password = '';
 $database_name = 'Wingspart25';
 $database_connection = '';
 
+
 try{
     $database_connection = mysqli_connect($database_server, $database_user, $database_password, $database_name);
 

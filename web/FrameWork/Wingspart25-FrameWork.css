@@ -480,6 +480,7 @@ body{
         text-align: center;
         align-content: center;
         box-shadow: 0 2pt rgba(0, 0, 0, 0.418);
+        font-size: 16pt;
     }
     img{
         width: 60%;
@@ -492,8 +493,39 @@ body{
 
 .profile-navigation{
     background-color: var(--secondary-color);
-    width: 80%;
+    margin: auto;
+    width: 70%;
+    height: 400pt;
     border-radius: 8pt;
     padding: 20px;
     box-shadow: var(--box-shadow);
+    h1{
+        font-size: 16pt;
+        width: 100%;
+        padding-bottom: 20px;
+        box-shadow: 0pt 2pt black;
+    }
+    ul{
+        padding-left: 0;
+        margin-top: 30pt;
+        gap: 5pt;
+        display: flex;
+        flex-direction: column;
+        a{
+            text-decoration: none;
+            cursor: pointer;
+            min-height: 25pt;
+            align-items: center;
+            align-content: center;
+            padding-left: 5pt;
+        }
+        li{
+            list-style-type: none;
+            font-size: 10pt;
+            color: black;
+        }
+        a:hover{
+            background-color: rgba(0, 0, 0, 0.068);
+        }
+    }
 }

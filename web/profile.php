@@ -1,7 +1,7 @@
 <?php
 include "web-element/navigation.php";
 
-$profile_navigation = 'profile';
+$profile_navigation = isset($_GET['profile_navigation']) ? $_GET['profile_navigation'] : 'biodata';
 
 ?>
 
@@ -16,7 +16,10 @@ $profile_navigation = 'profile';
         <div class="profile-navigation" style="grid-area:box-1">
             <h1>Navigasi</h1>
             <ul>
-                <a href="profile.php?$profile_navigation=biodata"><li>Biodata</li></a>
+                <a href="profile.php?$profile_navigation=biodata"><li><i class="bi bi-person"></i> Biodata</li></a>
+                <a href="profile.php?$profile_navigation=notifikasi"><li><i class="bi bi-bell"></i> Notifikasi</li></a>
+                <a href="profile.php?$profile_navigation=pesanan"><li><i class="bi bi-card-text"></i> Pesanan</li></a>
+                <a href="profile.php?$profile_navigation=transaksi"><li><i class="bi bi-basket"></i> Riwayat Transaksi</li></a>
             </ul>
         </div>
         <div class="profile-content" style="grid-area: box-2">

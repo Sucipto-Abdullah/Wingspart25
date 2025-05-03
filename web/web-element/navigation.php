@@ -2,8 +2,6 @@
 
     $notif_index = 1;
 
-    include "includes/databaseServer.inc.php";
-
     $notification_content = '<div class="notification-list">
                                 <a href="#" id="notification-link">
                                     <img src="image/Product 1.png" class="notification-image" style="grid-area: image;">
@@ -63,7 +61,7 @@
             <?php } else {?>
 
                 <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
-                <p><b>Anda Belum Login</b></p>
+                <p class="profile-name"><b>Anda Belum Login</b></p>
                 <a href="signIn.php"><button onclick="" class="btn account-btn">Sign In <i class="bi bi-box-arrow-in-left"></i></button></a>
 
             <?php }?>

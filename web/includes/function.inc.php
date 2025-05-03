@@ -116,4 +116,19 @@ function logout_account($connection){
     setcookie('role', 'pembeli', time() + (86400*2), '/');
 }
 
+function role_check($connection){
+    if ( $_COOKIE['role'] == 'admin' ){
+        $username = $_COOKIE['username'];
+        $sql_code = "SELECT * FROM table_akun_pengguna WHERE username = '{$username}';";
+        $target_query = mysqli_query($connection, $sql_code);
+
+        if( mysqli_num_rows($target_query) > 0 ){
+            $row = mysqli_fetch_assoc($target_query);
+            setcookie('role', $row['role_pengguna'], time() + (86400*2), '/');
+            header("location: index.php");
+        }
+
+    }
+}
+
 ?>
