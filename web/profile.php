@@ -1,25 +1,33 @@
 <?php
 include "web-element/navigation.php";
+
+$profile_navigation = 'profile';
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="FrameWork/Wingspart25-FrameWork.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-    <h1>Profile pengguna</h1>
-    <ul>
-        <li><?= $account['username'] ?></li>
-        <li><?= $account['email'] ?></li>
-        <li><?= $account['phone-number'] ?></li>
-        <li><?= $account['address'] ?></li>
-    </ul>
-    <P>Belum ku desain halaman ini</P>
-    <form method="POST" action="script/delete.php">
-        <button>apus akun</button>
-    </form>
+
+    <div class="page profile">
+        <div class="profile-navigation" style="grid-area:box-1">
+            <h1>Navigasi</h1>
+            <ul>
+                <a href="profile.php?$profile_navigation=biodata"><li>Biodata</li></a>
+            </ul>
+        </div>
+        <div class="profile-content" style="grid-area: box-2">
+            <h1 style="grid-area: box-1;"><i class="bi bi-person-fill"></i>  Profil</h1>
+            <img style="grid-area: box-2;" src="icon/Profile picture icon default.svg" alt="Muka anda">
+        </div>
+    </div>
         
 </body>
 </html>
+
+<?php
+include "web-element/footer.php";
+?>
