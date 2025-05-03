@@ -19,6 +19,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="FrameWork/Wingspart25-FrameWork.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     </head>
     <body> 
         <nav class="navigation bg-main">
@@ -57,7 +58,7 @@
                 <?php } ?>
 
                 <a href="signIn.php"><button class="btn account-btn ">Switch User <i class="bi bi-arrow-repeat"></i></button></a>
-                <a href="signIn.php"><button class="btn account-btn ">Sign out <i class="bi bi-box-arrow-right"></i></button></a>
+                <a href="includes/signOut.php"><button class="btn account-btn ">Sign out <i class="bi bi-box-arrow-right"></i></button></a>
 
             <?php } else {?>
 

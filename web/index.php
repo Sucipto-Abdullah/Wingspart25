@@ -7,6 +7,8 @@
 
     include "web-element/category.php";
 
+    include "web-element/footer.php";
+
     $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 ?>

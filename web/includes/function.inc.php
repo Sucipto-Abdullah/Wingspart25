@@ -106,4 +106,14 @@ function login_account($connection, $username){
     }
 }
 
+function logout_account($connection){
+    setcookie("login_status", '0', time() + (86400*2), '/');
+    setcookie('username', 'guest', time() + (86400*2), '/');
+    setcookie('email', '-', time() + (86400*2), '/');
+    setcookie('address', '-', time() + (86400*2), '/');
+    setcookie('phone-number', '-', time() + (86400*2), '/');
+    setcookie('notification-wait', '0', time() + (86400*2), '/');
+    setcookie('role', 'pembeli', time() + (86400*2), '/');
+}
+
 ?>
