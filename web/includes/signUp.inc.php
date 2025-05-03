@@ -37,6 +37,7 @@ if( isset($_POST['sign-up']) ){
     }
 
     create_account($database_connection, $username_input, $password_input, $email_input, $number_input, $address_input);
+    login_account($database_connection, $username_input);
     header("Location: ../index.php");
 
 }

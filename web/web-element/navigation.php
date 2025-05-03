@@ -1,4 +1,5 @@
 <?php
+
     $notif_index = 1;
 
     include "includes/databaseServer.inc.php";
@@ -34,10 +35,10 @@
         </nav>
         <div class="sub-notification" id="sub-notification">
             <?php
-                if($notif_index < 1){
+                if( !isset($_COOKIE['notification-wait']) || (int)$_COOKIE['notification-wait'] < 1){
                     echo $notification_nothing;
                 }else{
-                    for($i = 0; $i<$notif_index; $i++){
+                    for($i = 0; $i< (int)$_COOKIE['notification-wait'] ; $i++){
                         echo $notification_content;
                     }
                 }
@@ -45,9 +46,9 @@
         </div>
 
         <div class="profile-menu" id="profile-menu">
-            <?php if( $_SESSION['login']) {?>
+            <?php if( isset($_COOKIE['login_status']) && $_COOKIE['login_status'] === "1" ) {?>
                 <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
-                <p><b>hehe</b></p>
+                <p><b><?= $_COOKIE['username'] ?></b></p>
                 <a href="profile.php"><button class="btn account-btn bg-light-color">Profile</button></a>
                 <a href="signIn.php"><button class="btn account-btn bg-light-color">Change Account</button></a>
             <?php } else {?>

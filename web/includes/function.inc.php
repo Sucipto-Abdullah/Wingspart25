@@ -86,6 +86,23 @@ function create_account($connection, $username, $password, $email, $number, $add
     $statement->bind_param('ssssssis', $username, $password, $address, $number, $email, $get_date, $notification_default, $role_default);
     $statement->execute();
 
-}   
+}
+
+function login_account($connection, $username){
+    $sql_code = "SELECT * FROM table_akun_pengguna WHERE username = '{$username}'";
+    $target_query = mysqli_query($connection, $sql_code);
+
+    if( mysqli_num_rows($target_query) > 0 ){
+        $row = mysqli_fetch_assoc($target_query);
+
+        setcookie("login_status", '1', time() + (86400*2), '/');
+        setcookie('username', $row['username'], time() + (86400*2), '/');
+        setcookie('email', $row['email'], time() + (86400*2), '/');
+        setcookie('address', $row['alamat'], time() + (86400*2), '/');
+        setcookie('phone-number', $row['nomor_tellphone'], time() + (86400*2), '/');
+        setcookie('notification-wait', (string)$row['notification'], time() + (86400*2), '/');
+
+    }
+}
 
 ?>
