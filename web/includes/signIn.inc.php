@@ -9,25 +9,25 @@ if(isset($_POST['button-login-act'])){
 
     //jika username atau password kosong
     if( is_login_form_empty($username, $password) ){
-        header("Location: ../login.php?error=form login empty");
+        header("Location: ../signIn.php?error=form login empty");
         exit();
     }
 
     //jika username tidak ditemukan
-    else if( userExist($database_connection, $username) ){
-        header("Location: ../login.php?error=username and password was not found");
+    else if( !userExist($database_connection, $username) ){
+        header("Location: ../signIn.php?error=username tidak ditemukan");
         exit();
     }
     
     //jika password salah
     else if( !password_check($database_connection, $username, $password) ){
-        header("Location: ../login.php?error=username and password was not found");
+        header("Location: ../signIn.php?error=password salah");
         exit();
     }
 
     $_SESSION['login'] = true;
 
-    header("Location: ../index.php");
+    header("Location: ../index.php?logined=true");
 
 }
 

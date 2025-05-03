@@ -1,3 +1,13 @@
+<?php
+
+include "includes/signUp.inc.php";
+
+$error = isset($_GET['error']) ? $_GET['error'] : 'none'
+
+
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +30,10 @@
         </div>
         <div class="create" style="grid-area: box-2">
             <h1>Create account</h1>
-            <form action="script/create_account.php" method="POST">
+            <?php if($error != 'none'){ ?>
+                <p><?= $error ?></p>
+            <?php }?>
+            <form action="includes/signUp.inc.php" method="POST">
                 <label for="">Username :</label><br>
                 <input type="text" name="username"><br>
                 <label for="">Password :</label><br>
@@ -33,7 +46,7 @@
                 <input type="number" name="number"><br>
                 <label for="">Alamat :</label><br>
                 <textarea name="address"></textarea><br>
-                <button type="submit">Daftar</button>
+                <button type="submit" name="sign-up">Daftar</button>
             </form>
         </div>
     </div>

@@ -45,15 +45,15 @@
         </div>
 
         <div class="profile-menu" id="profile-menu">
-            <?php if($login) {?>
+            <?php if( $_SESSION['login']) {?>
                 <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
                 <p><b>hehe</b></p>
                 <a href="profile.php"><button class="btn account-btn bg-light-color">Profile</button></a>
-                <a href="login.php"><button class="btn account-btn bg-light-color">Change Account</button></a>
+                <a href="signIn.php"><button class="btn account-btn bg-light-color">Change Account</button></a>
             <?php } else {?>
                 <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
                 <p><b>Anda Belum Login</b></p>
-                <a href="login.php"><button onclick="" class="btn account-btn bg-light-color">Sign In</button></a>
+                <a href="signIn.php"><button onclick="" class="btn account-btn bg-light-color">Sign In</button></a>
             <?php }?>
         </div>
 

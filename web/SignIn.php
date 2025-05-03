@@ -35,7 +35,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : 'none';
                 <input type="password" name="password_input"><br>
                 <button type="submit" name="button-login-act" value="button-login">Login</button>
             </form>
-            <p><a href="index.php?page=create_account">Belum punya akun</a></p>
+            <p><a href="signUp.php">Belum punya akun</a></p>
         </div>
     </div>
 
