@@ -375,3 +375,21 @@ body{
 .status-card h6{
     height: 0px;
 }
+
+.content-page{
+    text-align: left;
+}
+.content-page p{
+    object-fit: initial;
+    display: inline-block;
+    
+}
+.keranjang img{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.keranjang {
+    background-color: #f47070;
+}
