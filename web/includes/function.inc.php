@@ -213,7 +213,7 @@ function notification_content($connection, $header, $massage){
 }
 
 function render_notification($connection){
-    $sql_code = "SELECT * FROM notification_table WHERE user_id = {$_COOKIE['id']}";
+    $sql_code = "SELECT * FROM notification_table WHERE user_id = {$_COOKIE['id']} ORDER BY id DESC";
     $sql_query_execute = mysqli_query($connection, $sql_code);
 
     while ($row = mysqli_fetch_assoc($sql_query_execute)){

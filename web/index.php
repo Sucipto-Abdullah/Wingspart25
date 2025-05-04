@@ -4,6 +4,8 @@
     include "includes/databaseServer.inc.php";
     include "includes/function.inc.php";
 
+    update_notification_row($database_connection);
+
     // role_check($database_connection);
     //$page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
