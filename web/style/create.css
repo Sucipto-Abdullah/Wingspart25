@@ -20,8 +20,8 @@ body{
     overflow-y: auto;
     overflow-x: hidden;
     padding: 0%;
-    width: 50%;
-    min-height: 60%;
+    width: 640pt;
+    height: 400pt;
     margin: auto;
     display: grid;
     grid-template-columns: 30% 60%;

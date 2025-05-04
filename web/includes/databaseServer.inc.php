@@ -13,4 +13,9 @@ try{
 }catch( mysqli_sql_exception ){
     echo "fail connecting to database server";
 }
+
+// $database_connection = new PDO ("mysql:host=$database_server;dbname=$database_name", $database_user, $database_password);
+
+// $database_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 ?>

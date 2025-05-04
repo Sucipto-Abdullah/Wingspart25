@@ -442,13 +442,14 @@ body{
     min-height: 70dvh;
     padding-top: 20px;
     padding-bottom: 20px;
+    position: relative;
 }
 
 .page.profile{
     /* background-color: aqua; */
-    width: 60%;
+    width: 800pt;
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 20% 80%;
     grid-template-areas: "box-1 box-2";
 }
 
@@ -467,7 +468,7 @@ body{
 
     display: grid;
     grid-template-columns: 30% 70%;
-    grid-template-rows: 50pt 300pt 50pt;
+    grid-template-rows: 50pt 140pt 200pt;
     gap: 20px;
     grid-template-areas: 
     "box-1 box-1"
@@ -485,9 +486,58 @@ body{
     img{
         width: 60%;
         margin: auto;
-        margin-right: 0;
         margin-top: 0;
         max-height: 100%;
+    }
+    .biodata-profile{
+        width: 100%;
+        height: 100%;
+        align-self: first baseline;
+        h2{
+            font-size: 16pt;
+            margin-bottom: 5pt;
+        }
+        table tr td{
+            font-size: 10pt;
+        }
+        table tr{
+            height: 25pt;
+        }
+        .profile-data{
+            min-width: 100pt;
+        }
+        .profile-data.alamat{
+            align-items: baseline;
+            align-content: baseline;
+        }
+        textarea{
+            resize: none;
+            width: 100%;
+            height: 100pt;
+            padding: 5pt 2pt;
+        }
+        .edit-profile{
+            margin: auto;
+            margin-right: 0;
+            margin-top: 20pt;
+            padding: 5pt 10pt;
+            background-color: rgb(23, 57, 136);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 5pt;
+        }
+        .edit-profile.cancel{
+            background-color: rgb(116, 18, 39);
+        }
+    }
+    .ongoing-transaction{
+        align-content: baseline;
+        width: 100%;
+        height: 100%;
+        h2{
+            font-size: 16pt;
+            padding-left: 20pt;
+        }
     }
 }
 

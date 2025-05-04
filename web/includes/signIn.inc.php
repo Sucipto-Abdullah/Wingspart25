@@ -27,7 +27,7 @@ if(isset($_POST['button-login-act'])){
 
     login_account($database_connection, $username);
 
-    header("Location: ../index.php?logined=true");
+    header("Location: ../index.php?");
 
 }
 
