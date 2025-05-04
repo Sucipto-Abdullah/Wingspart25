@@ -1,7 +1,5 @@
 <?php
 
-    $notif_index = 1;
-
     $notification_content = '<div class="notification-list">
                                 <a href="#" id="notification-link">
                                     <img src="image/Product 1.png" class="notification-image" style="grid-area: image;">
@@ -37,9 +35,7 @@
                 if( !isset($_COOKIE['notification-wait']) || (int)$_COOKIE['notification-wait'] < 1){
                     echo $notification_nothing;
                 }else{
-                    for($i = 0; $i< (int)$_COOKIE['notification-wait'] ; $i++){
-                        echo $notification_content;
-                    }
+                    render_notification($database_connection);
                 }
             ?>
         </div>

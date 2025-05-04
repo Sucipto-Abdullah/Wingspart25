@@ -1,9 +1,14 @@
 <?php
-include "web-element/navigation.php";
-include "includes/function.inc.php";
 include "includes/databaseServer.inc.php";
+include "includes/function.inc.php";
+
+role_check($database_connection);
+
+include "web-element/navigation.php";
 
 $profile_navigation = isset($_GET['profile_navigation']) ? $_GET['profile_navigation'] : 'biodata';
+
+update_notification_row($database_connection);
 
 if( !isLogin() ){
     header("Location: index.php");
@@ -40,7 +45,7 @@ if( !isLogin() ){
                         <tr>
                             <td class="profile-data" >Username</td>
                             <td> : </td>
-                            <td><?= $_COOKIE['username'] ?></td>
+                            <td><?= $_COOKIE['username'] ?> <?= $_COOKIE['role'] == 'admin' ? '(admin)' : '' ?></td>
                         </tr>
                         <tr>
                             <td class="profile-data" >Email</td>
@@ -76,7 +81,7 @@ if( !isLogin() ){
                             <tr>
                                 <td class="profile-data" >Username</td>
                                 <td> : </td>
-                                <td><input name="username" value="<?= $_COOKIE['username'] ?>" ></td>
+                                <td><input name="username" value="<?= $_COOKIE['username'] ?>"></td>
                             </tr>
                             <tr>
                                 <td class="profile-data" >Email</td>
@@ -100,6 +105,14 @@ if( !isLogin() ){
                     </form>
                 </div>
             </div>
+        <?php } ?>
+        
+        <?php if($profile_navigation == 'notifikasi') {?>
+
+            <div class="profile-content notifikasi" style="grid-area: box-2">
+                <h1 style="grid-area: box-1;"><i class="bi bi-envelope"></i> Notifikasi : (<?= (int)$_COOKIE['notification-wait'] ?>) </h1>
+            </div>
+
         <?php } ?>
 
     </div>
