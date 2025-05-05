@@ -268,7 +268,6 @@ body{
     }
 }
 .content-page{
-    min-height: 800px;
     margin: auto;   
     width: 80%;
     padding: 20px;
@@ -380,16 +379,37 @@ body{
     text-align: left;
 }
 .content-page p{
-    object-fit: initial;
     display: inline-block;
     
 }
 .keranjang img{
-    height: 200px;
-    width: 200px;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
+    padding: 30px;
 }
 
 .keranjang {
-    background-color: #f47070;
+    box-shadow: 0px 5px 20px 2px rgb(175, 174, 174);
+    margin: auto;   
+    width: 80%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.keranjang-text{
+   display: inline-block;
+   position: relative;
+}
+
+.keranjang input{
+    position: relative;
+    bottom: 150px;
+}
+
+.keranjang-page{
+    object-fit: cover;
+}
+.chechbox {
+    background-color: #22345c;
 }
