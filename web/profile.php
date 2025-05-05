@@ -7,11 +7,11 @@ include "includes/function.inc.php";
 
 // role_check($database_connection);
 
-// include "web-element/navigation.php";
+include "web-element/navigation.php";
 
 $profile_navigation = isset($_GET['profile_navigation']) ? $_GET['profile_navigation'] : 'biodata';
 
-update_notification_row($database_connection);
+// update_notification_row($database_connection);
 
 if( !$_SESSION['login-status'] ){
     header("Location: index.php");
@@ -99,7 +99,7 @@ if( !$_SESSION['login-status'] ){
                             <tr>
                                 <td class="profile-data alamat">Alamat</td>
                                 <td> : </td>
-                                <td><textarea name="address" value="<?= $_SESSION['address'] ?>"> <?= $_SESSION['address'] ?> </textarea></td>
+                                <td><textarea name="address" value="<?= $_SESSION['address'] ?>"><?= $_SESSION['address'] ?></textarea></td>
                             </tr>
                         </table>
                         <button type="submit" name="cancel-edit" class="btn edit-profile cancel"> batal </button>
@@ -113,10 +113,11 @@ if( !$_SESSION['login-status'] ){
         <?php if($profile_navigation == 'notifikasi') {?>
 
             <div class="profile-content notifikasi" style="grid-area: box-2">
-                <h1 style="grid-area: box-1;"><i class="bi bi-envelope"></i> Notifikasi : (<?= count_notification($database_connection) ?>) </h1>
+                <h1 style="grid-area: box-1;"><i class="bi bi-envelope"></i> Notifikasi : (<?= count_notification($database_connection, 'unread') ?>) </h1>
+                <?php render_notification($database_connection); ?>
             </div>
 
-        <?php ; echo $_SESSION['user-id']; } ?>
+        <?php } ?>
 
     </div>
         

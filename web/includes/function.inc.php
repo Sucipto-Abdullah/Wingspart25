@@ -144,7 +144,7 @@ function count_ongoing_transaction($connection){
 }
 
 function update_table($connection, $table, $row, $new_value, $row_target, $row_target_value){
-    $sql_code = "UPDATE {$table} SET {$row} = '{$new_value}' WHERE $row_target = {$_COOKIE[$row_target_value]}";
+    $sql_code = "UPDATE {$table} SET {$row} = '{$new_value}' WHERE $row_target = {$_SESSION[$row_target_value]}";
     mysqli_query($connection, $sql_code);
 }
 
@@ -153,14 +153,14 @@ function delete_table_row($connection, $table, $target, $target_value){
     mysqli_query($connection, $sql_code);
 }
 
-function count_notification($connection){
-    $user_id = isset($_SESSION['user-id']) ? (int)$_SESSION['user-id'] : 0;
-    $sql_code = "SELECT * FROM notification_table WHERE user_id = {$user_id};";
-    $sql_query_execute = mysqli_query($connection, $sql_code);
-
-    $count_notification = (int)mysqli_num_rows($sql_query_execute);
+function count_notification($connection, $status){
+        $user_id = isset($_SESSION['user-id']) ? (int)$_SESSION['user-id'] : 0;
+        $sql_code = "SELECT * FROM notification_table WHERE user_id = {$user_id} AND status = '{$status}';";
+        $sql_query_execute = mysqli_query($connection, $sql_code);
     
-    return $count_notification;
+        $count_notification = mysqli_num_rows($sql_query_execute);
+        
+        return $count_notification;
 }
 
 function update_notification_row($connection){
@@ -221,7 +221,6 @@ function render_notification($connection){
     while ($row = mysqli_fetch_assoc($sql_query_execute)){
         echo notification_content($connection, $row['header'], $row['massage']);
     }
-
 }
 
 function getRowColumn($connection, $table_target, $column_target, $value_condition, $target_value){

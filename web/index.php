@@ -1,5 +1,4 @@
 <?php
-    session_start();
 
     require "includes/databaseServer.inc.php";
     require "includes/function.inc.php";

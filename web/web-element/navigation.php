@@ -1,6 +1,7 @@
 <?php
 
     require_once "includes/function.inc.php";
+    // session_start();
 
     $notification_nothing = '<div class="notification-nothing">
                                 <h1>tidak ada notifikisai yang menunggu</h1>
@@ -27,8 +28,9 @@
         </nav>
         <div class="sub-notification" id="sub-notification">
             <?php
-                if( isset($_SESSION['notification-wait']) || $_SESSION['notification-wait'] < 1 ){
+                if( !isset($_SESSION['notification-wait']) || $_SESSION['notification-wait'] < 1){
                     echo $notification_nothing;
+                    echo $_SESSION['notification-wait'];
                 }else{
                     render_notification($database_connection);
                 }

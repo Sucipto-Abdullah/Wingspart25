@@ -469,12 +469,12 @@ body{
 }
 
 .profile-content{
-    margin-top: 60px;
     background-color: var(--secondary-color);
     border-radius: 8pt;
     box-shadow: var(--box-shadow);
     width: 95%;
     margin: auto;
+    margin-top: 0pt;
     align-items: center;
     align-content: center;
     justify-content: center;
@@ -555,12 +555,61 @@ body{
         }
     }
 }
+.profile-content.notifikasi{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    h1{
+        text-align: left;
+    }
+    .notification-list{
+        width: 95%;
+        margin: auto;
+        margin-left: 0;
+    }
+    .notification-list a{
+        text-decoration: none;
+        border-style: solid;
+        border-color: rgb(66, 69, 75);
+        border-width: 0.5pt;
+        padding: 10pt;
+        width: 100%;
+        height: 100pt;
+        display: grid;
+        grid-template-columns: 100pt 80%;
+        grid-template-rows: 20pt 80pt;
+        grid-template-areas:
+        "image header"
+        "image text";
+        .notification-image{
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            margin-left: 0;
+            object-fit: cover;
+        }
+        .notification-header{
+            /* background-color: aquamarine; */
+            margin: auto;
+            color: rgb(0, 0, 0);
+            box-shadow: none;
+            padding-left: 10pt;
+            font-size: 16pt;
+        }
+        .notification-text{
+            color: rgb(85, 85, 85);
+            padding-left: 10pt;
+            font-size: 10pt;
+        }
+    }
+}
 
 .profile-navigation{
     background-color: var(--secondary-color);
     margin: auto;
-    width: 70%;
-    height: 400pt;
+    position: fixed;
+    width: 120pt;
+    min-height: 230pt;
     border-radius: 8pt;
     padding: 20px;
     box-shadow: var(--box-shadow);
