@@ -1,12 +1,7 @@
 <?php
 
-    $notification_content = '<div class="notification-list">
-                                <a href="#" id="notification-link">
-                                    <img src="image/Product 1.png" class="notification-image" style="grid-area: image;">
-                                    <h1 class="notification-header" style="grid-area: header;">Judul Notifikasi</h1>
-                                    <p class="notification-text" style="grid-area: text;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                </a>
-                            </div>';
+    require_once "includes/function.inc.php";
+
     $notification_nothing = '<div class="notification-nothing">
                                 <h1>tidak ada notifikisai yang menunggu</h1>
                             </div>';
@@ -32,7 +27,7 @@
         </nav>
         <div class="sub-notification" id="sub-notification">
             <?php
-                if( !isset($_COOKIE['notification-wait']) || (int)$_COOKIE['notification-wait'] < 1){
+                if( isset($_SESSION['notification-wait']) || $_SESSION['notification-wait'] < 1 ){
                     echo $notification_nothing;
                 }else{
                     render_notification($database_connection);
@@ -41,13 +36,13 @@
         </div>
 
         <div class="profile-menu" id="profile-menu">
-            <?php if( isset($_COOKIE['login_status']) && $_COOKIE['login_status'] === "1" ) {?>
+            <?php if( isset($_SESSION['login-status']) && $_SESSION['login-status'] == true) {?>
 
                 <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
-                <p class="profile-name" ><b><?= $_COOKIE['username'] ?> <?= $_COOKIE['role'] == 'admin' ? '<br>(admin)' : ''?></b></p>
+                <p class="profile-name" ><b><?= $_SESSION['username'] ?> <?= $_SESSION['role'] == 'admin' ? '<br>(admin)' : ''?></b></p>
                 <a href="profile.php"><button class="btn account-btn ">Profile <i class="bi bi-person-fill"></i></button></a>
 
-                <?php if( isset($_COOKIE['role']) && $_COOKIE['role'] == 'admin' ) {?>
+                <?php if( isset($_SESSION['role']) && $_SESSION['role'] == 'admin' ) {?>
                     <a href="product.php"><button class="btn account-btn ">Our Product <i class="bi bi-hdd-stack"></i></button></a>
                 <?php } ?>
 

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function is_login_form_empty($username, $password){
     return empty($username) || empty($password) || $username == '' || $password == '';
 }
@@ -94,32 +96,29 @@ function login_account($connection, $username){
     if( mysqli_num_rows($target_query) > 0 ){
         $row = mysqli_fetch_assoc($target_query);
 
-        setcookie("login_status", '1', time() + (86400*2), '/');
-        setcookie('id', (string)$row['user_id'], time() + (86400*2), '/');
-        setcookie('username', $row['username'], time() + (86400*2), '/');
-        setcookie('email', $row['user_email'], time() + (86400*2), '/');
-        setcookie('address', $row['user_address'], time() + (86400*2), '/');
-        setcookie('phone-number', $row['user_phone_number'], time() + (86400*2), '/');
-        setcookie('notification-wait', (string)$row['user_notification'], time() + (86400*2), '/');
-        setcookie('role', $row['user_role'], time() + (86400*2), '/');
+        $_SESSION['login-status'] = true;
+        $_SESSION['user-id'] = $row['user_id'];
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['email'] = $row['user_email'];
+        $_SESSION['address'] = $row['user_address'];
+        $_SESSION['phone-number'] = $row['user_phone_number'];
+        $_SESSION['notification-wait'] = $row['user_notification'];
+        $_SESSION['role'] = $row['user_role'];
 
     }
 }
 
 function logout_account($connection){
-    setcookie("login_status", '0', time() + (86400*2), '/');
-    setcookie('id', '0', time() + (86400*2), '/');
-    setcookie('username', 'guest', time() + (86400*2), '/');
-    setcookie('email', '-', time() + (86400*2), '/');
-    setcookie('address', '-', time() + (86400*2), '/');
-    setcookie('phone-number', '-', time() + (86400*2), '/');
-    setcookie('notification-wait', '0', time() + (86400*2), '/');
-    setcookie('role', 'pembeli', time() + (86400*2), '/');
+
+    $_SESSION['login-status'] = false;
+
+    session_unset();
+    session_destroy();
 }
 
 function role_check($connection){
-    if ( $_COOKIE['role'] == 'admin' ){
-        $username = $_COOKIE['username'];
+    if ( getRowColumn($connection, 'table_akun_pengguna', 'user_id', $_SESSION['user_id'], 'user_role') == 'admin' ){
+        $username = getRowColumn($connection, 'table_akun_pengguna', 'user_id', $_SESSION['user_id'], 'username');
         $sql_code = "SELECT * FROM table_akun_pengguna WHERE username = '{$username}';";
         $target_query = mysqli_query($connection, $sql_code);
 
@@ -136,7 +135,7 @@ function isLogin(){
 }
 
 function count_ongoing_transaction($connection){
-    $user_id = (int)$_COOKIE['id'];
+    $user_id = isset($_SESSION['user-id']) ? (int)$_SESSION['user-id'] : 0;
     $sql_code = "SELECT * FROM transaksi WHERE transaction_status != 'finish' AND id_pengguna = {$user_id}";
     $target_query = mysqli_query($connection, $sql_code);
 
@@ -155,21 +154,24 @@ function delete_table_row($connection, $table, $target, $target_value){
 }
 
 function count_notification($connection){
-    $sql_code = "SELECT * FROM notification_table WHERE user_id = {$_COOKIE['id']};";
+    $user_id = isset($_SESSION['user-id']) ? (int)$_SESSION['user-id'] : 0;
+    $sql_code = "SELECT * FROM notification_table WHERE user_id = {$user_id};";
     $sql_query_execute = mysqli_query($connection, $sql_code);
 
     $count_notification = (int)mysqli_num_rows($sql_query_execute);
-
+    
     return $count_notification;
-
 }
 
 function update_notification_row($connection){
-    $sql_code = "SELECT * FROM notification_table WHERE id = {$_COOKIE['id']};";
-    $sql_query_execute = mysqli_query($connection, $sql_code);
-
-    update_table($connection, 'table_akun_pengguna', 'user_notification', mysqli_num_rows($sql_query_execute), 'user_id', 'id');
-    setcookie('notification-wait', (string)count_notification($connection), time() + (86400*2), '/');
+    if( isset($_SESSION['user-id']) ){
+        $user_id = $_SESSION['user-id'];
+        $sql_code = "SELECT * FROM notification_table WHERE id = {$user_id};";
+        $sql_query_execute = mysqli_query($connection, $sql_code);
+    
+        update_table($connection, 'table_akun_pengguna', 'user_notification', mysqli_num_rows($sql_query_execute), 'user_id', 'id');
+        // setcookie('notification-wait', (string)count_notification($connection), time() + (86400*2), '/');
+    }
 }
 
 function get_max_id($connection, $table_target, $column_target){
@@ -213,7 +215,7 @@ function notification_content($connection, $header, $massage){
 }
 
 function render_notification($connection){
-    $sql_code = "SELECT * FROM notification_table WHERE user_id = {$_COOKIE['id']} ORDER BY id DESC";
+    $sql_code = "SELECT * FROM notification_table WHERE user_id = {$_SESSION['user-id']} ORDER BY id DESC";
     $sql_query_execute = mysqli_query($connection, $sql_code);
 
     while ($row = mysqli_fetch_assoc($sql_query_execute)){
@@ -221,5 +223,16 @@ function render_notification($connection){
     }
 
 }
+
+function getRowColumn($connection, $table_target, $column_target, $value_condition, $target_value){
+    $sql_code = "SELECT * FROM {$table_target} WHERE $column_target = {$value_condition};";
+    $sql_query_execute = mysqli_query($connection, $sql_code);
+
+    if( mysqli_num_rows($sql_query_execute) > 0 ){
+        $row = mysqli_fetch_assoc($sql_query_execute);
+        return $row[$target_value];
+    }
+}
+
 
 ?>

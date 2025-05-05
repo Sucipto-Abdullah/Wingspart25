@@ -1,16 +1,19 @@
 <?php
+
+// session_start();
+
 include "includes/databaseServer.inc.php";
 include "includes/function.inc.php";
 
-role_check($database_connection);
+// role_check($database_connection);
 
-include "web-element/navigation.php";
+// include "web-element/navigation.php";
 
 $profile_navigation = isset($_GET['profile_navigation']) ? $_GET['profile_navigation'] : 'biodata';
 
 update_notification_row($database_connection);
 
-if( !isLogin() ){
+if( !$_SESSION['login-status'] ){
     header("Location: index.php");
 }
 
@@ -45,22 +48,22 @@ if( !isLogin() ){
                         <tr>
                             <td class="profile-data" >Username</td>
                             <td> : </td>
-                            <td><?= $_COOKIE['username'] ?> <?= $_COOKIE['role'] == 'admin' ? '(admin)' : '' ?></td>
+                            <td><?= isset($_SESSION['username']) ? $_SESSION['username'] : 'guest' ?> <?= isset($_SESSION['role']) && $_SESSION['role'] == 'admin' ? '(admin)' : '' ?></td>
                         </tr>
                         <tr>
                             <td class="profile-data" >Email</td>
                             <td> : </td>
-                            <td><?= $_COOKIE['email'] ?></td>
+                            <td><?= $_SESSION['email'] ?></td>
                         </tr>
                         <tr>
                             <td class="profile-data" >Nomor telephone</td>
                             <td> : </td>
-                            <td><?= $_COOKIE['phone-number'] ?></td>
+                            <td><?= $_SESSION['phone-number'] ?></td>
                         </tr>
                         <tr>
                             <td class="profile-data"     >Alamat</td>
                             <td> : </td>
-                            <td><?= $_COOKIE['address'] ?></td>
+                            <td><?= $_SESSION['address'] ?></td>
                         </tr>
                     </table>
                 </div>
@@ -81,22 +84,22 @@ if( !isLogin() ){
                             <tr>
                                 <td class="profile-data" >Username</td>
                                 <td> : </td>
-                                <td><input name="username" value="<?= $_COOKIE['username'] ?>"></td>
+                                <td><input name="username" value="<?= $_SESSION['username'] ?>"></td>
                             </tr>
                             <tr>
                                 <td class="profile-data" >Email</td>
                                 <td> : </td>
-                                <td><input name="email" value="<?= $_COOKIE['email'] ?>" ></td>
+                                <td><input name="email" value="<?= $_SESSION['email'] ?>" ></td>
                             </tr>
                             <tr>
                                 <td class="profile-data" >Nomor telephone</td>
                                 <td> : </td>
-                                <td><input name="phone-number" value="<?= $_COOKIE['phone-number'] ?>" ></td>
+                                <td><input name="phone-number" value="<?= $_SESSION['phone-number'] ?>" ></td>
                             </tr>
                             <tr>
                                 <td class="profile-data alamat">Alamat</td>
                                 <td> : </td>
-                                <td><textarea name="address" value="<?= $_COOKIE['address'] ?>"> <?= $_COOKIE['address'] ?> </textarea></td>
+                                <td><textarea name="address" value="<?= $_SESSION['address'] ?>"> <?= $_SESSION['address'] ?> </textarea></td>
                             </tr>
                         </table>
                         <button type="submit" name="cancel-edit" class="btn edit-profile cancel"> batal </button>
@@ -110,10 +113,10 @@ if( !isLogin() ){
         <?php if($profile_navigation == 'notifikasi') {?>
 
             <div class="profile-content notifikasi" style="grid-area: box-2">
-                <h1 style="grid-area: box-1;"><i class="bi bi-envelope"></i> Notifikasi : (<?= (int)$_COOKIE['notification-wait'] ?>) </h1>
+                <h1 style="grid-area: box-1;"><i class="bi bi-envelope"></i> Notifikasi : (<?= count_notification($database_connection) ?>) </h1>
             </div>
 
-        <?php } ?>
+        <?php ; echo $_SESSION['user-id']; } ?>
 
     </div>
         

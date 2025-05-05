@@ -24,8 +24,8 @@ if (isset($_POST['confirm-edit'])){
     
 } 
 if(isset($_POST['delete-account'])){
-    delete_table_row($database_connection, 'notification_table', 'user_id', $_COOKIE['id']);
-    delete_table_row($database_connection, 'table_akun_pengguna', 'user_id', $_COOKIE['id']);
+    delete_table_row($database_connection, 'notification_table', 'user_id', $_SESSION['user-id']);
+    delete_table_row($database_connection, 'table_akun_pengguna', 'user_id', $_SESSION['user-id']);
     logout_account($database_connection);
 }
 
