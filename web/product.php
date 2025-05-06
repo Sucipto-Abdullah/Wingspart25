@@ -4,6 +4,12 @@ include "includes/databaseServer.inc.php";
 include "includes/function.inc.php";
 include "web-element/navigation.php";
 
+$product_navigation = isset($_GET['product_navigation']) ? $_GET['product_navigation'] : 'product-list';
+
+if ($_SESSION['role'] != 'admin'){
+    header("Location: index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -14,14 +20,23 @@ include "web-element/navigation.php";
     <title>Wingspart25</title>
 </head>
 <body>
-    <div class="page">
+    <div class="page product">
+
+        <div class="profile-navigation product" style="grid-area:box-1">
+            <h1>Navigasi</h1>
+            <ul>
+                <a href="product.php?product_navigation=dashboard"><li><i class="bi bi-bag-dash"></i> Dashboard</li></a>
+                <a href="product.php?product_navigation=product-list"><li><i class="bi bi-hdd-stack"></i> list produk</li></a>
+                <a href="product.php?product_navigation=pesanan"><li><i class="bi bi-basket"></i> Pesanan</li></a>
+                <a href="product.php?product_navigation=analitik"><li><i class="bi bi-graph-up-arrow"></i> Analitik</li></a>
+                <a href="product.php?product_navigation=umpan-balik"><li><i class="bi bi-envelope"></i> Umpan Balik</li></a>
+            </ul>
+        </div>
+
+        <div class="product-page dashboard open" style="grid-area: box-1;">
+            <h1><i class="bi bi-bag-dash"></i> Dashboard</h1>
+        </div>
 
     </div>
 </body>
 </html>
-
-<?php
-
-include "web-element/footer.php";
-
-?>

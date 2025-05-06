@@ -34,8 +34,8 @@ $error = isset($_GET['error']) ? $_GET['error'] : 'none'
                 <p><?= $error ?></p>
             <?php }?>
             <form action="includes/signUp.inc.php" method="POST">
-                <label for="">Username :</label><br>
-                <input type="text" name="username"><br>
+                <label for="" >Username :</label><br>
+                <input type="text" maxlength="24" name="username"><br>
                 <label for="">Password :</label><br>
                 <input type="password" name="password"><br>
                 <label for="">Confirm your Password :</label><br>
@@ -43,7 +43,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : 'none'
                 <label for="">Email :</label><br>
                 <input type="email" name="email"><br>
                 <label for="">Phone Number :</label><br>
-                <input type="number" name="number"><br>
+                <input type="number" maxlength="12" name="number"><br>
                 <label for="">Alamat :</label><br>
                 <textarea name="address"></textarea><br>
                 <button type="submit" name="sign-up">Daftar</button>

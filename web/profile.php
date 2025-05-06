@@ -5,13 +5,11 @@
 include "includes/databaseServer.inc.php";
 include "includes/function.inc.php";
 
-// role_check($database_connection);
-
 include "web-element/navigation.php";
 
 $profile_navigation = isset($_GET['profile_navigation']) ? $_GET['profile_navigation'] : 'biodata';
 
-// update_notification_row($database_connection);
+$error = isset($_GET['error']) ? $_GET['error'] : '';
 
 if( !$_SESSION['login-status'] ){
     header("Location: index.php");
@@ -41,7 +39,7 @@ if( !$_SESSION['login-status'] ){
         <?php if($profile_navigation == 'biodata') {?>
             <div class="profile-content" style="grid-area: box-2">
                 <h1 style="grid-area: box-1;"><i class="bi bi-person-fill"></i>  Profil</h1>
-                <img style="grid-area: box-2;" src="icon/Profile picture icon default.svg" alt="Muka anda">
+                <img style="grid-area: box-2;" src="image/profile-image/<?= $_SESSION['profile'] != "" ? $_SESSION['profile'] : "Profile picture icon default.svg" ?>" alt="Muka anda">
                 <div class="biodata-profile" style="grid-area: box-3;">
                     <h2>Biodata : </h2>
                     <table>
@@ -74,37 +72,44 @@ if( !$_SESSION['login-status'] ){
         <?php } ?>
         
         <?php if($profile_navigation == 'edit_biodata') {?>
-            <div class="profile-content" style="grid-area: box-2">
-                <h1 style="grid-area: box-1;"><i class="bi bi-person-fill"></i>  Profil</h1>
-                <img style="grid-area: box-2;" src="icon/Profile picture icon default.svg" alt="Muka anda">
-                <div class="biodata-profile" style="grid-area: box-3;">
-                    <h2>Biodata : </h2>
-                    <form action="includes/editAccount.inc.php" method="POST">
-                        <table>
-                            <tr>
-                                <td class="profile-data" >Username</td>
-                                <td> : </td>
-                                <td><input name="username" value="<?= $_SESSION['username'] ?>"></td>
-                            </tr>
-                            <tr>
-                                <td class="profile-data" >Email</td>
-                                <td> : </td>
-                                <td><input name="email" value="<?= $_SESSION['email'] ?>" ></td>
-                            </tr>
-                            <tr>
-                                <td class="profile-data" >Nomor telephone</td>
-                                <td> : </td>
-                                <td><input name="phone-number" value="<?= $_SESSION['phone-number'] ?>" ></td>
-                            </tr>
-                            <tr>
-                                <td class="profile-data alamat">Alamat</td>
-                                <td> : </td>
-                                <td><textarea name="address" value="<?= $_SESSION['address'] ?>"><?= $_SESSION['address'] ?></textarea></td>
-                            </tr>
-                        </table>
-                        <button type="submit" name="cancel-edit" class="btn edit-profile cancel"> batal </button>
-                        <button type="submit" name="confirm-edit" class="btn edit-profile"> Ubah </button>
-                        <button type="submit" name="delete-account" class="btn edit-profile"> Hapus Akun </button>
+            <div class="profile-content edit" style="grid-area: box-2">
+                <h1 style="grid-area: box-1;"><i class="bi bi-person-fill"></i> Edit Profil</h1>
+                <div class="edit-biodata" style="grid-area: box-2;" >
+                    <form action="includes/editAccount.inc.php" method="POST" enctype="multipart/form-data">
+                        <div class="image-input" style="grid-area: photo-input">
+                            <img style="grid-area: box-2;" src="image/profile-image/<?= $_SESSION['profile'] != "" ? $_SESSION['profile'] : "Profile picture icon default.svg" ?>" alt="Muka anda">
+                            <input type="file" name="photo_profile" value="<?=$_SESSION['profile']?>">
+                            <p class="profile-upload-error"><?= $error ?></p>
+                        </div>
+
+                        <div class="input-edit" style="grid-area: text-input">
+                            <h2>Biodata :</h2>
+                            <table >
+                                <tr>
+                                    <td class="profile-data" >Username</td>
+                                    <td> : </td>
+                                    <td><input name="username" value="<?= $_SESSION['username'] ?>"></td>
+                                </tr>
+                                <tr>
+                                    <td class="profile-data" >Email</td>
+                                    <td> : </td>
+                                    <td><input name="email" value="<?= $_SESSION['email'] ?>" ></td>
+                                </tr>
+                                <tr>
+                                    <td class="profile-data" >Nomor telephone</td>
+                                    <td> : </td>
+                                    <td><input name="phone-number" value="<?= $_SESSION['phone-number'] ?>" ></td>
+                                </tr>
+                                <tr>
+                                    <td class="profile-data alamat">Alamat</td>
+                                    <td> : </td>
+                                    <td><textarea name="address" value="<?= $_SESSION['address'] ?>"><?= $_SESSION['address'] ?></textarea></td>
+                                </tr>
+                            </table>
+                            <button type="submit" name="cancel-edit" class="btn edit-profile cancel"> batal </button>
+                            <button type="submit" name="confirm-edit" class="btn edit-profile"> Ubah </button>
+                            <button type="submit" name="delete-account" class="btn edit-profile"> Hapus Akun </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -125,5 +130,6 @@ if( !$_SESSION['login-status'] ){
 </html>
 
 <?php
+get_time_pass("2025-04-05 12:0:0");
 include "web-element/footer.php";
 ?>

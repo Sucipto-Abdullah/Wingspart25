@@ -6,6 +6,8 @@ $database_password = '';
 $database_name = 'Wingspart25';
 $database_connection = '';
 
+date_default_timezone_set("Asia/Bangkok");
+
 // $_SESSION['login-status'] = false;
 
 try{

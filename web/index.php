@@ -3,7 +3,7 @@
     require "includes/databaseServer.inc.php";
     require "includes/function.inc.php";
 
-    update_notification_row($database_connection);
+    // update_notification_row($database_connection);
     
     include "web-element/navigation.php";
 

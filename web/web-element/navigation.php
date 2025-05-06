@@ -23,7 +23,7 @@
                 </form>
                 <a class="btn cart-btn bg-transparant" href="cart.php" class="cart-button" style="grid-area: box-3"><img src="icon/icon keranjang.svg" alt="keranjang"></a>
                 <button class="btn notification-btn bg-transparant" onclick="popup_menu(this.value)" value="notification" style="grid-area: box-4"><img src="icon/notification-icon.svg" alt="notification" ></button>
-                <button class="btn profile-btn bg-transparant" onclick="popup_menu(this.value)" style="grid-area: box-5;" value="profile"><img src="icon/Profile picture icon default.svg" alt="profile-picture" id="profile-picture"></button>
+                <button class="btn profile-btn bg-transparant" onclick="popup_menu(this.value)" style="grid-area: box-5;" value="profile"><img src='image/profile-image/<?= isset($_SESSION['profile']) && $_SESSION['profile'] != '' ? $_SESSION['profile'] : 'Profile picture icon default.svg' ?>' alt="profile-picture" id="profile-picture"></button>
             </div>
         </nav>
         <div class="sub-notification" id="sub-notification">
@@ -40,7 +40,7 @@
         <div class="profile-menu" id="profile-menu">
             <?php if( isset($_SESSION['login-status']) && $_SESSION['login-status'] == true) {?>
 
-                <img src="icon/Profile picture icon default.svg" alt="Muka Burik anda">
+                <img src="image/profile-image/<?= $_SESSION['profile'] != '' ? $_SESSION['profile'] : 'Profile picture icon default.svg' ?>" alt="Muka Burik anda">
                 <p class="profile-name" ><b><?= $_SESSION['username'] ?> <?= $_SESSION['role'] == 'admin' ? '<br>(admin)' : ''?></b></p>
                 <a href="profile.php"><button class="btn account-btn ">Profile <i class="bi bi-person-fill"></i></button></a>
 
@@ -64,3 +64,7 @@
     <script src="script/navigation.js"></script>
     <script src="FrameWork/Wingspart25-FrameWork.js"></script>
 </html>
+
+<?php
+
+?>

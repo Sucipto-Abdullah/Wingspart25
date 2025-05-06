@@ -93,6 +93,11 @@ body{
     }
 }
 
+.profile-btn img{
+    border-radius: 50pt;
+    object-fit: cover;
+}
+
 .form.search-form{
     margin: auto;
     height: 100%;
@@ -162,17 +167,21 @@ body{
         padding-left: 5pt;
         padding-right: 5pt;
         grid-template-columns: 30% 70%;
-        grid-template-rows: 20pt 60pt;
-        grid-template-areas: "image header" "image text";
+        grid-template-rows: 20pt 10pt 60pt;
+        grid-template-areas: 
+        "image header"
+        "image date"
+        "image text";
         text-decoration: none;
         color: black;
         justify-content: center;
         align-content: center;
         .notification-image{
-            max-width: 90%;
-            height: 100%;
-            object-fit:scale-down;
+            width: 90%;
+            height: 60%;
+            object-fit: cover;
             margin: auto;
+            margin-top: 5pt;
         }
         .notification-header{
             max-width: 100%;
@@ -180,6 +189,14 @@ body{
             padding-bottom: 0;
             margin-bottom: 0;
             height: 100%;
+        }
+        .notification-date{
+            font-size: 8pt;
+            margin: auto;
+            text-align: left;
+            margin-top: 0;
+            margin-left: 0;
+            color: rgb(85, 88, 100);
         }
         .notification-text{
             width: 95%;
@@ -222,7 +239,7 @@ body{
     background-color: var(--secondary-color);
     border-style: none;
     border-color: var(--secondary-color);
-    border-width: 0pt;
+    border-width: 5pt ;
     box-shadow: var(--box-shadow);
     filter: opacity(1);
 
@@ -332,8 +349,8 @@ body{
     background-color: rgba(255, 255, 255, 0);
     width: 150px;
     top: 60px;
-    min-height: 0px;
-    max-height: 0px;
+    min-height: 0pt;
+    max-height: 0pt;
     text-align: center;
     align-items: center;
     padding: 0px;
@@ -349,7 +366,8 @@ body{
     gap: 0px;
     overflow: auto;
     overflow-y: hidden;
-    transition: 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    overflow-x: hidden;
+    transition: 0.1s cubic-bezier(0.19, 1, 0.22, 1);
     img, button, p{
         opacity: 0;
     }
@@ -363,7 +381,7 @@ body{
     display: flex;
     padding: 10px;
     min-height: 100pt;
-    max-height: 100dvh;
+    max-height: 230pt;
     top: 70px;
     gap: 10pt;
     background-color: var(--secondary-color);
@@ -371,9 +389,15 @@ body{
     border-color: var(--secondary-color);
     border-width: 5px;
     box-shadow: 2px 2px 10pt rgba(59, 66, 75, 0.295);
-    transition: 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: 0.1s cubic-bezier(0.19, 1, 0.22, 1);
     img, button, p{
         opacity: 1;
+    }
+    img{
+        height: 40pt;
+        width: 40pt;
+        object-fit: cover;
+        border-radius: 50pt;
     }
     p{
         font-size: 10pt;
@@ -499,10 +523,13 @@ body{
         font-size: 16pt;
     }
     img{
-        width: 60%;
+        max-width: 150pt;
+        height: 150pt;
+        object-fit: fill;
         margin: auto;
         margin-top: 0;
         max-height: 100%;
+        border-radius: 8pt;
     }
     .biodata-profile{
         width: 100%;
@@ -555,6 +582,107 @@ body{
         }
     }
 }
+
+.profile-content.edit{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50pt 340pt;
+    grid-template-areas: "box-1" "box-2";
+    h1{
+    }
+    .edit-biodata{
+        width: 100%;
+    }
+    .edit-biodata form{
+        margin: auto;
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: 28% 72%;
+        grid-template-rows: 100%;
+        grid-template-areas:
+        "photo-input text-input";
+        .image-input{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            img{
+                margin-bottom: 20pt;
+                max-width: 150pt;
+                height: 150pt;
+            }
+            input{
+                width: 90%;
+                margin: auto;
+                background-color: var(--main-color);
+                color: var(--secondary-color);
+                border-radius: 8pt;
+                height: 20pt;
+                align-content: center;
+                text-align: center;
+                justify-content: center;
+                justify-items: center;
+                padding: 2px;
+                cursor: pointer;
+                font-size: 8pt;
+            }
+        }
+        .input-edit{
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            margin-left: 0;
+            padding-top: 4pt;
+            padding-left: 15pt;
+            h2{
+                font-size: 14pt;
+                margin-bottom: 5pt;
+            }
+            table tr .profile-data{
+                min-width: 100pt;
+            }
+            table tr td{
+                align-items: baseline;
+                align-content: flex-start;
+            }
+            table{
+                font-size: 10pt;
+                tr{
+                    height: 25pt;
+                }
+            }
+            table tr td input{
+                border-width: 0.5pt;
+                padding: 2pt;
+                padding-left: 5pt;
+                border-color: rgb(95, 103, 112);
+            }
+            table tr td textarea{
+                width: 250pt;
+                height: 100pt;
+                resize: none;
+                border-width: 0.5pt;
+                padding: 5pt;
+                border-color: rgb(95, 103, 112);
+                margin-bottom: 50pt;
+            }
+            .edit-profile{
+                margin: auto;
+                margin-right: 0;
+                padding: 5pt 10pt;
+                background-color: rgb(23, 57, 136);
+                color: var(--secondary-color);
+                border: none;
+                border-radius: 5pt;
+            }
+            .edit-profile.cancel{
+                background-color: rgb(116, 18, 39);
+            }
+        }
+    }
+}
+
 .profile-content.notifikasi{
     width: 100%;
     display: flex;
@@ -574,19 +702,34 @@ body{
         border-width: 0.5pt;
         padding: 10pt;
         width: 100%;
-        height: 100pt;
+        min-height: 100pt;
         display: grid;
-        grid-template-columns: 100pt 80%;
-        grid-template-rows: 20pt 80pt;
+        grid-template-columns: 150pt 80%;
+        grid-template-rows: 20pt 15pt 80pt;
         grid-template-areas:
         "image header"
+        "image date"
         "image text";
         .notification-image{
-            width: 100%;
+            max-width: 100%;
             height: 100%;
             margin: auto;
             margin-left: 0;
             object-fit: cover;
+            border-radius: 0;
+        }
+        .notification-date{
+            /* background-color: aqua; */
+            width: 100%;
+            color: rgba(0, 0, 0, 0.4);
+            height: 100%;
+            padding-left: 10pt;
+            margin: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 8pt;
+            align-items: center;
+            align-content: center;
         }
         .notification-header{
             /* background-color: aquamarine; */
@@ -600,6 +743,9 @@ body{
             color: rgb(85, 85, 85);
             padding-left: 10pt;
             font-size: 10pt;
+            margin: auto;
+            margin-top: 0;
+            width: 100%;
         }
     }
 }
@@ -611,7 +757,7 @@ body{
     width: 120pt;
     min-height: 230pt;
     border-radius: 8pt;
-    padding: 20px;
+    padding: 15pt;
     box-shadow: var(--box-shadow);
     h1{
         font-size: 16pt;
@@ -642,4 +788,34 @@ body{
             background-color: rgba(0, 0, 0, 0.068);
         }
     }
+}
+
+.page.product{
+    width: 95%;
+    display: flex;
+    gap: 20pt;
+    align-items: flex-start;
+    /* display: grid;
+    grid-template-columns: repeat(2, 120pt);
+    grid-template-areas: "box-1 box-2"; */
+    /* background-color: aqua; */
+}
+
+.profile-navigation.product{
+    position: fixed;
+    margin: auto;
+    margin-top: 0;
+}
+
+.product-page{
+    background-color: var(--secondary-color);
+    width: 100%;
+    min-height: 85dvh;
+    margin-left: 170pt;
+    border-radius: 8pt;
+    padding: 10pt 30pt;
+}
+
+.product-page.dashboard{
+    
 }
