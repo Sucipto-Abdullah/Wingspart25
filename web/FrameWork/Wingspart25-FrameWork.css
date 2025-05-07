@@ -771,21 +771,40 @@ body{
         gap: 5pt;
         display: flex;
         flex-direction: column;
-        a{
+        .profile-navigation-list{
+            background-color: var(--secondary-color);
             text-decoration: none;
             cursor: pointer;
             min-height: 25pt;
             align-items: center;
             align-content: center;
             padding-left: 5pt;
+            transition: 0.2s ease;
+            li{
+                list-style-type: none;
+                font-size: 10pt;
+                color: black;
+            }
         }
-        li{
-            list-style-type: none;
-            font-size: 10pt;
-            color: black;
-        }
-        a:hover{
+        .profile-navigation-list:hover{
             background-color: rgba(0, 0, 0, 0.068);
+            transition: 0.2s ease;
+        }
+        .profile-navigation-list:active{
+            background-color: var(--main-color);
+            transition: 0.2s ease;
+            border-radius: 8pt;
+            li{
+                color: var(--secondary-color);
+            }
+        }
+        .profile-navigation-list.active{
+            background-color: var(--main-color);
+            border-radius: 8pt;
+            transition: 0.2s ease;
+            li{
+                color: var(--secondary-color);
+            }
         }
     }
 }
@@ -816,6 +835,6 @@ body{
     padding: 10pt 30pt;
 }
 
-.product-page.dashboard{
+/* .product-page.dashboard{
     
-}
+} */

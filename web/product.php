@@ -25,11 +25,11 @@ if ($_SESSION['role'] != 'admin'){
         <div class="profile-navigation product" style="grid-area:box-1">
             <h1>Navigasi</h1>
             <ul>
-                <a href="product.php?product_navigation=dashboard"><li><i class="bi bi-bag-dash"></i> Dashboard</li></a>
-                <a href="product.php?product_navigation=product-list"><li><i class="bi bi-hdd-stack"></i> list produk</li></a>
-                <a href="product.php?product_navigation=pesanan"><li><i class="bi bi-basket"></i> Pesanan</li></a>
-                <a href="product.php?product_navigation=analitik"><li><i class="bi bi-graph-up-arrow"></i> Analitik</li></a>
-                <a href="product.php?product_navigation=umpan-balik"><li><i class="bi bi-envelope"></i> Umpan Balik</li></a>
+                <a class="profile-navigation-list <?= $product_navigation == 'dashboard' ? 'active' : '' ?>" href="product.php?product_navigation=dashboard"><li><i class="bi bi-bag-dash"></i> Dashboard</li></a>
+                <a class="profile-navigation-list <?= $product_navigation == 'product-list' ? 'active' : '' ?>" href="product.php?product_navigation=product-list"><li><i class="bi bi-hdd-stack"></i> list produk</li></a>
+                <a class="profile-navigation-list <?= $product_navigation == 'pesanan' ? 'active' : '' ?>" href="product.php?product_navigation=pesanan"><li><i class="bi bi-basket"></i> Pesanan</li></a>
+                <a class="profile-navigation-list <?= $product_navigation == 'analitik' ? 'active' : '' ?>" href="product.php?product_navigation=analitik"><li><i class="bi bi-graph-up-arrow"></i> Analitik</li></a>
+                <a class="profile-navigation-list <?= $product_navigation == 'umpan-balik' ? 'active' : '' ?>" href="product.php?product_navigation=umpan-balik"><li><i class="bi bi-envelope"></i> Umpan Balik</li></a>
             </ul>
         </div>
 

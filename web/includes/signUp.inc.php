@@ -38,7 +38,7 @@ if( isset($_POST['sign-up']) ){
 
     create_account($database_connection, $username_input, password_hash($password_input, PASSWORD_DEFAULT), $email_input, $number_input, $address_input);
     login_account($database_connection, $username_input);
-    push_notification($database_connection, (int)get_max_id($database_connection, 'table_akun_pengguna', 'user_id'), "Selamat Datang", "Selamat datang di Wingspart25 {$_SESSION['username']}, selamat berbelanja {$_COOKIE[get_max_id($database_connection, 'table_akun_pengguna', 'user_id')]} :D");
+    push_notification($database_connection, (int)get_max_id($database_connection, 'table_akun_pengguna', 'user_id'), "Selamat Datang", "Selamat datang di Wingspart25 {$_SESSION['username']}, selamat berbelanja :D", '');
     header("Location: ../index.php");
 }
 

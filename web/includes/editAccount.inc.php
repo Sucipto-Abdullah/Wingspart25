@@ -51,26 +51,32 @@ if (isset($_POST['confirm-edit'])){
     } catch(mysqli_sql_exception) {
         // header("Location: ../profile.php?profile_navigation=edit_biodata?error=maaf, format foto yang kamu posting tidak mendukung");
     }
-}
-    update_table($database_connection, 'table_akun_pengguna', 'username', $username_input, 'user_id', 'user-id');
-    $_SESSION['username'] = $username_input;
-    
-    update_table($database_connection, 'table_akun_pengguna', 'user_email', $email_input, 'user_id', 'user-id');
-    $_SESSION['email'] = $email_input;
-    
-    update_table($database_connection, 'table_akun_pengguna', 'user_phone_number', $phone_number_input, 'user_id', 'user-id');
-    $_SESSION['phone-number'] = $phone_number_input;
+    if (isset($_POST['username_input'])){
+        update_table($database_connection, 'table_akun_pengguna', 'username', $username_input, 'user_id', 'user-id');
+        $_SESSION['username'] = $username_input;    
 
-    update_table($database_connection, 'table_akun_pengguna', 'user_address', $address_input, 'user_id', 'user-id');
-    $_SESSION['address'] = $address_input;
+    }
+    if (isset( $_POST['email_input'] )){
+        update_table($database_connection, 'table_akun_pengguna', 'user_email', $email_input, 'user_id', 'user-id');
+        $_SESSION['email'] = $email_input;
+    }
+    if( isset( $_POST['phone_number_input'] ) ){
+        update_table($database_connection, 'table_akun_pengguna', 'user_phone_number', $phone_number_input, 'user_id', 'user-id');
+        $_SESSION['phone-number'] = $phone_number_input;
+    }
+    if( isset( $_POST['address_input'] ) ){
+        update_table($database_connection, 'table_akun_pengguna', 'user_address', $address_input, 'user_id', 'user-id');
+        $_SESSION['address'] = $address_input;
+    }
      
+    push_notification($database_connection, $_SESSION['user-id'], "Perubahan Profil", "profil akunmu telah berhasil diubah :D", '');
+}
 if(isset($_POST['delete-account'])){
     delete_table_row($database_connection, 'notification_table', 'user_id', $_SESSION['user-id']);
     delete_table_row($database_connection, 'table_akun_pengguna', 'user_id', $_SESSION['user-id']);
     logout_account($database_connection);
 }
 
-push_notification($database_connection, $_SESSION['user-id'], "Perubahan Profil", "profil akunmu telah berhasil diubah :D", '');
 
 header("Location: ../profile.php?profile_navigation=biodata");
 

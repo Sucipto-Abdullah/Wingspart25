@@ -28,11 +28,11 @@ if( !$_SESSION['login-status'] ){
         <div class="profile-navigation" style="grid-area:box-1">
             <h1>Navigasi</h1>
             <ul>
-                <a href="profile.php?profile_navigation=biodata"><li><i class="bi bi-person"></i> Biodata</li></a>
-                <a href="profile.php?profile_navigation=edit_biodata"><li><i class="bi bi-pencil"></i> Edit Biodata</li></a>
-                <a href="profile.php?profile_navigation=notifikasi"><li><i class="bi bi-bell"></i> Notifikasi</li></a>
-                <a href="profile.php?profile_navigation=pesanan"><li><i class="bi bi-card-text"></i> Pesanan</li></a>
-                <a href="profile.php?profile_navigation=transaksi"><li><i class="bi bi-basket"></i> Riwayat Transaksi</li></a>
+                <a class="profile-navigation-list <?= $profile_navigation == 'biodata' ? 'active' : '' ?>" href="profile.php?profile_navigation=biodata"><li><i class="bi bi-person"></i> Biodata</li></a>
+                <a class="profile-navigation-list <?= $profile_navigation == 'edit_biodata' ? 'active' : '' ?>" href="profile.php?profile_navigation=edit_biodata"><li><i class="bi bi-pencil"></i> Edit Biodata</li></a>
+                <a class="profile-navigation-list <?= $profile_navigation == 'notifikasi' ? 'active' : '' ?>" href="profile.php?profile_navigation=notifikasi"><li><i class="bi bi-bell"></i> Notifikasi</li></a>
+                <a class="profile-navigation-list <?= $profile_navigation == 'pesanan' ? 'active' : '' ?>" href="profile.php?profile_navigation=pesanan"><li><i class="bi bi-card-text"></i> Pesanan</li></a>
+                <a class="profile-navigation-list <?= $profile_navigation == 'transaksi' ? 'active' : '' ?>" href="profile.php?profile_navigation=transaksi"><li><i class="bi bi-basket"></i> Riwayat Transaksi</li></a>
             </ul>
         </div>
 
