@@ -30,7 +30,7 @@
             <?php
                 if( !isset($_SESSION['notification-wait']) || $_SESSION['notification-wait'] < 1){
                     echo $notification_nothing;
-                    echo $_SESSION['notification-wait'];
+                    // echo $_SESSION['notification-wait'];
                 }else{
                     render_notification($database_connection);
                 }
@@ -45,7 +45,7 @@
                 <a href="profile.php"><button class="btn account-btn ">Profile <i class="bi bi-person-fill"></i></button></a>
 
                 <?php if( isset($_SESSION['role']) && $_SESSION['role'] == 'admin' ) {?>
-                    <a href="product.php"><button class="btn account-btn ">Our Product <i class="bi bi-hdd-stack"></i></button></a>
+                    <a href="product.php"><button class="btn account-btn ">Admin Page <i class="bi bi-hdd-stack"></i></button></a>
                 <?php } ?>
 
                 <a href="signIn.php"><button class="btn account-btn ">Switch User <i class="bi bi-arrow-repeat"></i></button></a>

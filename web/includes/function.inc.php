@@ -286,5 +286,47 @@ function upload_image($image, $purpose){
     }
 }
 
+function print_product_table($index, $id, $name, $brand, $cost, $description, $condition, $image, $status, $category, $number_type){
+    return "<div class='tr value $number_type'>
+                <div class='row option-column td'>
+                    <form method='POST'>
+                        <button type='submit' name='info' value='$id' class='btn bg-blue'><i class='bi bi-info-circle'></i></button>
+                        <button type='submit' name='edit' value='$id' class='btn bg-blue'><i class='bi bi-pencil'></i></button>
+                        <button type='submit' name='delete' value='$id' class='btn bg-red'><i class='bi bi-trash3'></i></button>
+                    </form>
+                </div>
+                <div class='row number-column td'>
+                    <p>$index</p>
+                    </div>
+                    <div class='row image-column td'>
+                        <img src='image/product-image/$image' alt='$name'>
+                    </div>
+                    <div class='row name-column td'>
+                        <p>$name</p>
+                    </div>
+                    <div class='cost name-column td'>
+                        <p>$cost</p>
+                    </div>
+                    <div class='row description-column td'>
+                        <p>$description</p>
+                    </div>
+                    <div class='row status-column td'>
+                        <p>$status</p>
+                    </div>
+                    <div class='row category-column td'>
+                        <p>$category</p>
+                    </div>
+                    <div class='row condition-column td'>
+                        <p>$condition</p>
+                    </div>
+                </div>";
+}
+
+function print_all_product($connection){
+    $sql_code = "SELECT * FROM table_barang";
+    $sql_query = mysqli_query($connection, $sql_code);
+
+
+}
 
 ?>
