@@ -896,7 +896,7 @@ body{
                 text-align: left;
             }
             .td{
-                height: 60pt;
+                max-height: 60pt;
                 align-content: center;
                 justify-items: center;
                 overflow: hidden;
@@ -920,7 +920,6 @@ body{
                 min-width: 3%;
                 max-width: 3%;
                 text-align: center;
-                /* background-color: #d3d3d377; */
             }
             .image-column{
                 min-width: 5%;
@@ -993,6 +992,69 @@ body{
             .row{
                 background-color: #575d7a1e;
             }
+        }
+    }
+    .table table{
+        width: 100%;
+        padding: 0;
+        border-collapse: collapse;
+        tr{
+            height: 20pt;
+            border-style: solid;
+            border-width: 1pt 0pt;
+            border-color: var(--main-color);
+            /* justify-content: center; */
+            /* align-items: center; */
+            /* align-content: center; */
+            th{
+                font-size: 10pt;
+                background-color: var(--main-color);
+                color: var(--secondary-color);
+                border-style: solid;
+                border-width: 1pt;
+                border-color: var(--main-color);
+            }
+            td{
+                font-size: 8pt;
+                text-align: center;
+            }
+            .option-column{
+                width: 100pt;
+                height: 200%;
+                /* padding-top: 10pt; */
+                form{
+                    justify-content: center;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 5pt;
+                    min-height: 200%;
+                    align-content: center;
+                    align-items: center;
+                }
+            }
+            .number-column{
+                text-align: center;
+            }
+            .image-column{
+                max-width: 50px;
+                img{
+                    max-width: 100%;
+                    object-fit: cover;
+                }
+            }
+            .name-column{
+                padding-left: 5pt;
+                padding-right: 5pt;
+            }
+            .description-column{
+                max-width: 60pt;
+            }
+        }
+        tr.odd{
+            background-color: var(--secondary-color);
+        }
+        tr.even{
+            background-color: #1d233d18;
         }
     }
 }

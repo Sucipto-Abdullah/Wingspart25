@@ -286,46 +286,44 @@ function upload_image($image, $purpose){
     }
 }
 
-function print_product_table($index, $id, $name, $brand, $cost, $description, $condition, $image, $status, $category, $number_type){
-    return "<div class='tr value $number_type'>
-                <div class='row option-column td'>
+function print_product_table($index, $id, $name, $brand, $cost, $condition, $image, $status, $category, $number_type){
+    return "<tr class='$number_type'>
+                <td class='option-column'>
                     <form method='POST'>
-                        <button type='submit' name='info' value='$id' class='btn bg-blue'><i class='bi bi-info-circle'></i></button>
+                        <button type='submit' name='info' value='$id' class='btn bg-yellow'><i class='bi bi-info-circle'></i></button>
                         <button type='submit' name='edit' value='$id' class='btn bg-blue'><i class='bi bi-pencil'></i></button>
                         <button type='submit' name='delete' value='$id' class='btn bg-red'><i class='bi bi-trash3'></i></button>
                     </form>
-                </div>
-                <div class='row number-column td'>
-                    <p>$index</p>
-                    </div>
-                    <div class='row image-column td'>
-                        <img src='image/product-image/$image' alt='$name'>
-                    </div>
-                    <div class='row name-column td'>
-                        <p>$name</p>
-                    </div>
-                    <div class='cost name-column td'>
-                        <p>$cost</p>
-                    </div>
-                    <div class='row description-column td'>
-                        <p>$description</p>
-                    </div>
-                    <div class='row status-column td'>
-                        <p>$status</p>
-                    </div>
-                    <div class='row category-column td'>
-                        <p>$category</p>
-                    </div>
-                    <div class='row condition-column td'>
-                        <p>$condition</p>
-                    </div>
-                </div>";
+                </td>
+                <td class='number-column'>$index</td>
+                <td class='image-column'>
+                    <img src='image/product-image/$image'>
+                </td>
+                <td class='name-column'>$name</td>
+                <td class='cost-column'>Rp$cost</td>
+                <td class='brand-column'>$brand</td>
+                <td class='category-column'>$category</td>
+                <td class='condition-column'>$condition</td>
+                <td class='status-column'>$status</td>
+            </tr>";
 }
 
 function print_all_product($connection){
     $sql_code = "SELECT * FROM table_barang";
     $sql_query = mysqli_query($connection, $sql_code);
 
+    $index = 1;
+
+    if(mysqli_num_rows($sql_query) > 0){
+        while($row = mysqli_fetch_assoc($sql_query)){
+            if( $index % 2 == 0 ){
+                echo print_product_table($index, $row['id_barang'], $row['nama_barang'], $row['merek_barang'], $row['harga_barang'], $row['kondisi_barang'], $row['gambar_barang'], $row['status_barang'], $row['category'], 'even');
+            }else{
+                echo print_product_table($index, $row['id_barang'], $row['nama_barang'], $row['merek_barang'], $row['harga_barang'], $row['kondisi_barang'], $row['gambar_barang'], $row['status_barang'], $row['category'], 'odd');
+            }
+            $index += 1;
+        }
+    }
 
 }
 

@@ -209,7 +209,7 @@ if (isset($_POST['cancel'])){
                 </form>
             </div>
             <div class="product-list-table">
-                <div class="table">
+                <!-- <div class="table">
                     <div class="tr">
                         <div class="row option-column th">
                             <p>Option</p>
@@ -242,7 +242,7 @@ if (isset($_POST['cancel'])){
                             <p>Kondisi</p>
                         </div>
                     </div>
-                    <div class="tr value odd">
+                        <div class="tr value odd">
                         <div class="row option-column td">
                             <form method="POST">
                                 <button type="submit" name="info" value="3" class="btn bg-yellow"><i class="bi bi-info-circle"></i></button>
@@ -277,7 +277,45 @@ if (isset($_POST['cancel'])){
                         <div class="row condition-column td">
                             <p>bagus</p>
                         </div>
-                    </div>
+                    </div> -->
+                    <!-- <?php  ?>
+                </div> -->
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th class="option-column">Option</th>
+                            <th class="number-column">No</th>
+                            <th class="image-column">Gambar</th>
+                            <th class="name-column">Nama</th>
+                            <th class="cost-column">Harga</th>
+                            <th class="brand-column">Merek</th>
+                            <!-- <th class="description-column">Deskripsi</th> -->
+                            <th class="category-column">Kategori</th>
+                            <th class="condition-column">Kondisi</th>
+                            <th class="status-column">Stastus</th>
+                        </tr>
+                        <!-- <tr>
+                            <td class='option-column'>
+                                <form method='POST'>
+                                    <button type='submit' name='info' value='3' class='btn bg-yellow'><i class='bi bi-info-circle'></i></button>
+                                    <button type='submit' name='edit' value='3' class='btn bg-blue'><i class='bi bi-pencil'></i></button>
+                                    <button type='submit' name='delete' value='3' class='btn bg-red'><i class='bi bi-trash3'></i></button>
+                                </form>
+                            </td>
+                            <td class='number-column'>1</td>
+                            <td class='image-column'>
+                                <img src='image/product-image/681d2c8084f7b2.50898420.Product 1.png'>
+                            </td>
+                            <td class='name-column'>Agv K3SV Five</td>
+                            <td class='cost-column'>Rp5.000.000,00</td>
+                            <td class='brand-column'>Agv</td>
+                            <td class='category-column'>Helm</td>
+                            <td class='condition-column'>baru</td>
+                            <td class='status-column'>tersedia</td>
+                        </tr> -->
+                        <?php print_all_product($database_connection) ?>
+                    </table>
+
                 </div>
             </div>
         </div>
